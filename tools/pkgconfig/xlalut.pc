@@ -1,0 +1,11 @@
+prefix=/usr
+exec_prefix=${prefix}
+libdir=/usr/lib
+includedir=/usr/include
+
+Name: xlalut
+Description: XL OpenAL Utility library
+Requires: openal 
+Version: 1.0.0
+Libs: -L${libdir} -lalut
+Libs.private: -lm

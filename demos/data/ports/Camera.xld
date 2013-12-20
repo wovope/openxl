@@ -1,0 +1,95 @@
+type port
+name Generic
+version 0.0.136
+author Juan Manuel Borges Caño
+date 2013
+copyright 2012, 2013 Juan Manuel Borges Caño
+license GNU General Public License, Version 3, 29 June 2007 (GPLv3+)
+url http://code.google.com/p/openxlibrary
+email juanmabcmail@gmail.com
+tool vim - Vi IMproved, a programmers text editor
+comment demos/data
+xl 0.0.136
+triggers 10
+keyboard
+key w
+keyboard
+key s
+keyboard
+key d
+keyboard
+key a
+keyboard
+key q
+keyboard
+key e
+keyboard
+key r
+keyboard
+key f
+keyboard
+key t
+keyboard
+key g
+actions 10
+camera
+matrix
+matrix 1.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 1.0 1.0
+camera
+matrix
+matrix 1.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 -1.0 1.0
+camera
+matrix
+matrix 1.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 1.0 0.0 -1.0 0.0 0.0 1.0
+camera
+matrix
+matrix 1.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 1.0 0.0 1.0 0.0 0.0 1.0
+camera
+matrix
+matrix 0.965926 0.000000 0.258819 0.000000 0.000000 1.000000 0.000000 0.000000 -0.258819 0.000000 0.965926 0.000000 0.000000 0.000000 0.000000 1.000000
+camera
+matrix
+matrix 0.965926 0.000000 -0.258819 0.000000 0.000000 1.000000 0.000000 0.000000 0.258819 0.000000 0.965926 0.000000 0.000000 0.000000 0.000000 1.000000
+camera
+matrix
+matrix 1.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 -1.0 0.0 1.0
+camera
+matrix
+matrix 1.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 1.0 0.0 1.0
+camera
+matrix
+matrix 1.000000 0.000000 0.000000 0.000000 0.000000 0.965926 -0.258819 0.000000 0.000000 0.258819 0.965926 0.000000 0.000000 0.000000 0.000000 1.000000
+camera
+matrix
+matrix 1.000000 0.000000 0.000000 0.000000 0.000000 0.965926 0.258819 0.000000 0.000000 -0.258819 0.965926 0.000000 0.000000 0.000000 0.000000 1.000000
+units 10
+name Forward
+triggers 0 1
+actions 0 1
+name Backward
+triggers 1 1
+actions 1 1
+name Right
+triggers 2 1
+actions 2 1
+name Left
+triggers 3 1
+actions 3 1
+name LookRight
+triggers 4 1
+actions 4 1
+name LookLeft
+triggers 5 1
+actions 5 1
+name Up
+triggers 6 1
+actions 6 1
+name Down
+triggers 7 1
+actions 7 1
+name LookUp
+triggers 8 1
+actions 8 1
+name LookDown
+triggers 9 1
+actions 9 1

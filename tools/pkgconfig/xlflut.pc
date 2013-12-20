@@ -1,0 +1,11 @@
+prefix=/usr
+exec_prefix=${prefix}
+libdir=/usr/lib
+includedir=/usr/include
+
+Name: xlflut
+Description: XL OpenFL (format) Utility library
+Requires: magic MagickWand ffmpeg freetype2 libbzip2
+Version: 1.0.0
+Libs: -L${libdir}
+Libs.private: -lm

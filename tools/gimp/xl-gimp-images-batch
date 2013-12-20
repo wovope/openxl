@@ -1,0 +1,209 @@
+#! /usr/bin/env bash
+
+# xl: xl gimp image batch tool
+# Copyright (C) 2012 Juan Manuel Borges Caño
+
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+# cd images/
+
+# scale seamless enhance emboss oilify cartoon mosaic cubism sharpen sobel laplace edgesobel edgelaplace neon dog noise spread desaturate softglow gauss 
+
+for dir in "$@"
+do
+	echo "$dir"
+	cd "$dir"
+	for file in *.*
+	do
+		mkdir "${file%%.*}"
+		cd "${file%%.*}"
+		../../xl-gimp scale "../$file" "${file%%.*}-Scale.jpg"
+		cd ../
+	done
+	cd ..
+done
+
+./xl-gimp-images Scale seamless "$@"
+
+for fop in enhance emboss oilify cartoon mosaic cubism sharpen sobel laplace edgesobel edgelaplace neon dog noise spread desaturate softglow gauss 
+do
+	./xl-gimp-images ScaleSeamless "$fop" "$@"
+done
+
+./xl-gimp-images ScaleSeamlessCartoon cartoon "$@"
+./xl-gimp-images ScaleSeamlessCartoonCartoon cartoon "$@"
+./xl-gimp-images ScaleSeamlessCartoon dog "$@"
+./xl-gimp-images ScaleSeamlessCartoonDog dog "$@"
+./xl-gimp-images ScaleSeamlessCartoon edgesobel "$@"
+./xl-gimp-images ScaleSeamlessCartoonEdgesobel dog "$@"
+./xl-gimp-images ScaleSeamlessCartoon emboss "$@"
+./xl-gimp-images ScaleSeamlessCartoonEmboss dog "$@"
+./xl-gimp-images ScaleSeamlessCartoonEmboss emboss "$@"
+./xl-gimp-images ScaleSeamlessCartoonEmboss laplace "$@"
+./xl-gimp-images ScaleSeamlessCartoon gauss "$@"
+./xl-gimp-images ScaleSeamlessCartoonGauss cartoon "$@"
+./xl-gimp-images ScaleSeamlessCartoon laplace "$@"
+./xl-gimp-images ScaleSeamlessCartoonLaplace cartoon "$@"
+./xl-gimp-images ScaleSeamlessCartoonLaplace dog "$@"
+./xl-gimp-images ScaleSeamlessCartoon sobel "$@"
+./xl-gimp-images ScaleSeamlessCartoonSobel dog "$@"
+./xl-gimp-images ScaleSeamlessDesaturate cartoon "$@"
+./xl-gimp-images ScaleSeamlessDesaturateCartoon desaturate "$@"
+./xl-gimp-images ScaleSeamlessDesaturate noise "$@"
+./xl-gimp-images ScaleSeamlessDesaturateNoise oilify "$@"
+./xl-gimp-images ScaleSeamlessDog cartoon "$@"
+./xl-gimp-images ScaleSeamlessDogCartoon sharpen "$@"
+./xl-gimp-images ScaleSeamlessEdgesobel cartoon "$@"
+./xl-gimp-images ScaleSeamlessEdgesobelCartoon laplace "$@"
+./xl-gimp-images ScaleSeamlessEdgesobel oilify "$@"
+./xl-gimp-images ScaleSeamlessEdgesobelOilify edgesobel "$@"
+./xl-gimp-images ScaleSeamlessEmboss cartoon "$@"
+./xl-gimp-images ScaleSeamlessEmbossCartoon cartoon "$@"
+./xl-gimp-images ScaleSeamlessEmbossCartoon laplace "$@"
+./xl-gimp-images ScaleSeamlessEmboss dog "$@"
+./xl-gimp-images ScaleSeamlessEmbossDog dog "$@"
+./xl-gimp-images ScaleSeamlessEmbossDog edgesobel "$@"
+./xl-gimp-images ScaleSeamlessEmbossDog softglow "$@"
+./xl-gimp-images ScaleSeamlessEmboss edgesobel "$@"
+./xl-gimp-images ScaleSeamlessEmbossEdgesobel dog "$@"
+./xl-gimp-images ScaleSeamlessEmbossEdgesobel sobel "$@"
+./xl-gimp-images ScaleSeamlessEmboss laplace "$@"
+./xl-gimp-images ScaleSeamlessEmboss mosaic "$@"
+./xl-gimp-images ScaleSeamlessEmbossMosaic sobel "$@"
+./xl-gimp-images ScaleSeamlessEmboss sharpen "$@"
+./xl-gimp-images ScaleSeamlessEmbossSharpen dog "$@"
+./xl-gimp-images ScaleSeamlessEmbossSharpen emboss "$@"
+./xl-gimp-images ScaleSeamlessEmbossSharpen enhance "$@"
+./xl-gimp-images ScaleSeamlessEmbossSharpen sobel "$@"
+./xl-gimp-images ScaleSeamlessEmboss sobel "$@"
+./xl-gimp-images ScaleSeamlessEmbossSobel dog "$@"
+./xl-gimp-images ScaleSeamlessEmbossSobel softglow "$@"
+./xl-gimp-images ScaleSeamlessEmboss softglow "$@"
+./xl-gimp-images ScaleSeamlessEmbossSoftglow softglow "$@"
+./xl-gimp-images ScaleSeamlessEnhance cartoon "$@"
+./xl-gimp-images ScaleSeamlessEnhanceCartoon edgesobel "$@"
+./xl-gimp-images ScaleSeamlessEnhanceCartoon sobel "$@"
+./xl-gimp-images ScaleSeamlessEnhance dog "$@"
+./xl-gimp-images ScaleSeamlessEnhanceDog dog "$@"
+./xl-gimp-images ScaleSeamlessEnhanceDog sharpen "$@"
+./xl-gimp-images ScaleSeamlessEnhance edgelaplace "$@"
+./xl-gimp-images ScaleSeamlessEnhanceEdgelaplace dog "$@"
+./xl-gimp-images ScaleSeamlessEnhance edgesobel "$@"
+./xl-gimp-images ScaleSeamlessEnhanceEdgesobel cartoon "$@"
+./xl-gimp-images ScaleSeamlessEnhanceEdgesobel dog "$@"
+./xl-gimp-images ScaleSeamlessEnhanceEdgesobel laplace "$@"
+./xl-gimp-images ScaleSeamlessEnhance emboss "$@"
+./xl-gimp-images ScaleSeamlessEnhanceEmboss dog "$@"
+./xl-gimp-images ScaleSeamlessEnhanceEmboss edgesobel "$@"
+./xl-gimp-images ScaleSeamlessEnhance enhance "$@"
+./xl-gimp-images ScaleSeamlessEnhanceEnhance dog "$@"
+./xl-gimp-images ScaleSeamlessEnhanceEnhance sobel "$@"
+./xl-gimp-images ScaleSeamlessEnhance gauss "$@"
+./xl-gimp-images ScaleSeamlessEnhanceGauss oilify "$@"
+./xl-gimp-images ScaleSeamlessEnhanceGauss sharpen "$@"
+./xl-gimp-images ScaleSeamlessEnhance laplace "$@"
+./xl-gimp-images ScaleSeamlessEnhanceLaplace edgesobel "$@"
+./xl-gimp-images ScaleSeamlessEnhance neon "$@"
+./xl-gimp-images ScaleSeamlessEnhanceNeon dog "$@"
+./xl-gimp-images ScaleSeamlessEnhance noise "$@"
+./xl-gimp-images ScaleSeamlessEnhanceNoise cartoon "$@"
+./xl-gimp-images ScaleSeamlessEnhanceNoise dog "$@"
+./xl-gimp-images ScaleSeamlessEnhance oilify "$@"
+./xl-gimp-images ScaleSeamlessEnhanceOilify edgesobel "$@"
+./xl-gimp-images ScaleSeamlessEnhanceOilify sobel "$@"
+./xl-gimp-images ScaleSeamlessEnhance sharpen "$@"
+./xl-gimp-images ScaleSeamlessEnhanceSharpen dog "$@"
+./xl-gimp-images ScaleSeamlessEnhanceSharpen emboss "$@"
+./xl-gimp-images ScaleSeamlessEnhanceSharpen laplace "$@"
+./xl-gimp-images ScaleSeamlessEnhance sobel "$@"
+./xl-gimp-images ScaleSeamlessEnhanceSobel cartoon "$@"
+./xl-gimp-images ScaleSeamlessEnhanceSobel dog "$@"
+./xl-gimp-images ScaleSeamlessEnhance softglow "$@"
+./xl-gimp-images ScaleSeamlessEnhanceSoftglow dog "$@"
+./xl-gimp-images ScaleSeamlessEnhance spread "$@"
+./xl-gimp-images ScaleSeamlessEnhanceSpread oilify "$@"
+./xl-gimp-images ScaleSeamlessGauss desaturate "$@"
+./xl-gimp-images ScaleSeamlessGaussDesaturate emboss "$@"
+./xl-gimp-images ScaleSeamlessGauss dog "$@"
+./xl-gimp-images ScaleSeamlessGaussDog dog "$@"
+./xl-gimp-images ScaleSeamlessGauss emboss "$@"
+./xl-gimp-images ScaleSeamlessGaussEmboss emboss "$@"
+./xl-gimp-images ScaleSeamlessGauss mosaic "$@"
+./xl-gimp-images ScaleSeamlessGaussMosaic oilify "$@"
+./xl-gimp-images ScaleSeamlessGauss noise "$@"
+./xl-gimp-images ScaleSeamlessGaussNoise cartoon "$@"
+./xl-gimp-images ScaleSeamlessGauss oilify "$@"
+./xl-gimp-images ScaleSeamlessGaussOilify edgesobel "$@"
+./xl-gimp-images ScaleSeamlessGaussOilify emboss "$@"
+./xl-gimp-images ScaleSeamlessGauss sharpen "$@"
+./xl-gimp-images ScaleSeamlessGaussSharpen oilify "$@"
+./xl-gimp-images ScaleSeamlessGauss spread "$@"
+./xl-gimp-images ScaleSeamlessGaussSpread oilify "$@"
+./xl-gimp-images ScaleSeamlessLaplace cartoon "$@"
+./xl-gimp-images ScaleSeamlessLaplaceCartoon dog "$@"
+./xl-gimp-images ScaleSeamlessLaplace edgesobel "$@"
+./xl-gimp-images ScaleSeamlessLaplaceEdgesobel dog "$@"
+./xl-gimp-images ScaleSeamlessMosaic cartoon "$@"
+./xl-gimp-images ScaleSeamlessMosaicCartoon emboss "$@"
+./xl-gimp-images ScaleSeamlessMosaicCartoon enhance "$@"
+./xl-gimp-images ScaleSeamlessMosaic edgesobel "$@"
+./xl-gimp-images ScaleSeamlessMosaicEdgesobel dog "$@"
+./xl-gimp-images ScaleSeamlessMosaic enhance "$@"
+./xl-gimp-images ScaleSeamlessMosaicEnhance gauss "$@"
+./xl-gimp-images ScaleSeamlessMosaicEnhance softglow "$@"
+./xl-gimp-images ScaleSeamlessMosaic gauss "$@"
+./xl-gimp-images ScaleSeamlessMosaicGauss cartoon "$@"
+./xl-gimp-images ScaleSeamlessMosaicGauss oilify "$@"
+./xl-gimp-images ScaleSeamlessNeon edgesobel "$@"
+./xl-gimp-images ScaleSeamlessNeonEdgesobel edgelaplace "$@"
+./xl-gimp-images ScaleSeamlessNeon gauss "$@"
+./xl-gimp-images ScaleSeamlessNeonGauss dog "$@"
+./xl-gimp-images ScaleSeamlessNeon softglow "$@"
+./xl-gimp-images ScaleSeamlessNeonSoftglow dog "$@"
+./xl-gimp-images ScaleSeamlessNoise cartoon "$@"
+./xl-gimp-images ScaleSeamlessNoiseCartoon dog "$@"
+./xl-gimp-images ScaleSeamlessNoiseCartoon emboss "$@"
+./xl-gimp-images ScaleSeamlessNoise mosaic "$@"
+./xl-gimp-images ScaleSeamlessNoiseMosaic oilify "$@"
+./xl-gimp-images ScaleSeamlessNoise oilify "$@"
+./xl-gimp-images ScaleSeamlessNoiseOilify cartoon "$@"
+./xl-gimp-images ScaleSeamlessNoiseOilify dog "$@"
+./xl-gimp-images ScaleSeamlessNoiseOilify emboss "$@"
+./xl-gimp-images ScaleSeamlessNoiseOilify oilify "$@"
+./xl-gimp-images ScaleSeamlessOilify cartoon "$@"
+./xl-gimp-images ScaleSeamlessOilifyCartoon dog "$@"
+./xl-gimp-images ScaleSeamlessOilifyCartoon sobel "$@"
+./xl-gimp-images ScaleSeamlessOilify emboss "$@"
+./xl-gimp-images ScaleSeamlessOilifyEmboss edgelaplace "$@"
+./xl-gimp-images ScaleSeamlessOilifyEmboss enhance "$@"
+./xl-gimp-images ScaleSeamlessOilify oilify "$@"
+./xl-gimp-images ScaleSeamlessOilifyOilify edgesobel "$@"
+./xl-gimp-images ScaleSeamlessOilify sharpen "$@"
+./xl-gimp-images ScaleSeamlessOilifySharpen edgesobel "$@"
+./xl-gimp-images ScaleSeamlessOilify spread "$@"
+./xl-gimp-images ScaleSeamlessOilifySpread oilify "$@"
+./xl-gimp-images ScaleSeamlessSharpen cartoon "$@"
+./xl-gimp-images ScaleSeamlessSharpenCartoon dog "$@"
+./xl-gimp-images ScaleSeamlessSharpenCartoon laplace "$@"
+./xl-gimp-images ScaleSeamlessSharpen edgesobel "$@"
+./xl-gimp-images ScaleSeamlessSharpenEdgesobel edgelaplace "$@"
+
+#ScaleSeamlessCartoonCartoonCartoon
+#ScaleSeamlessCartoonDogDog
+#ScaleSeamlessCartoonEdgesobelDog
+#while read line; do a=($(echo "$line" | sed -e 's/\([[:upper:]]\)/ \1/g')); for e in "${!a[@]}"; do echo -n "./xl-gimp-images ScaleSeamless"; for ((i=0;i<$e+1;i++)); do [[ $i == $e ]] && echo -n " ${a[$i],,}"' "$@"' || echo -n ${a[$i]}; done; echo; done; done < tmp > tmp2
+
+#tar cvj RealPack-001/ -f tp-RealPack-001.tar.bz2
+#split -d -b 100M tp-RealPack-001.tar.bz2 tp-RealPack-001.tar.bz2.split
+#cat tp-RealPack-001.tar.bz2.split* | tar xvjf -

@@ -1,0 +1,113 @@
+type port
+name Generic
+version 0.0.136
+author Juan Manuel Borges Caño
+date 2013
+copyright 2012, 2013 Juan Manuel Borges Caño
+license GNU General Public License, Version 3, 29 June 2007 (GPLv3+)
+url http://code.google.com/p/openxlibrary
+email juanmabcmail@gmail.com
+tool vim - Vi IMproved, a programmers text editor
+comment demos/data
+xl 0.0.136
+triggers 9
+keyboard
+key u
+keyboard
+key j
+keyboard
+key k
+keyboard
+key h
+animatedobject
+actionframe
+action 2
+frame 79
+animatedobject
+actionframe
+action 1
+loop
+frame 119
+material
+object
+material 0
+property
+property 2
+animatedobject
+actionframe
+action 0
+frame 0
+animatedobject
+actionframe
+action 0
+frame 19
+actions 11
+object
+matrix
+matrix 1.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 1.0 0.0 1.0
+object
+matrix
+matrix 1.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 -1.0 0.0 1.0
+object
+matrix
+matrix 1.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 1.0 0.0 -1.0 0.0 0.0 1.0
+object
+matrix
+matrix 1.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 1.0 0.0 1.0 0.0 0.0 1.0
+animatedobject
+action
+action 1
+animatedobject
+action
+action 0
+material
+object
+material 0
+property
+property 1
+material
+object
+material 0
+property
+property 0
+animatedobject
+action
+action 2
+material
+object
+material 0
+property
+property 1
+material
+object
+material 0
+property
+property 2
+units 9
+name Forward
+triggers 0 1
+actions 0 1
+name Backward
+triggers 1 1
+actions 1 1
+name Right
+triggers 2 1
+actions 2 1
+name left
+triggers 3 1
+actions 3 1
+name JumpToStand
+triggers 4 1
+actions 4 1
+name StandToWalkWhileTurningRed
+triggers 5 1
+actions 5 2
+name GreenJumps
+triggers 6 1
+actions 7 2
+name WalkRed
+triggers 7 1
+actions 9 1
+name WalkGreen
+triggers 8 1
+actions 10 1

@@ -1,0 +1,64 @@
+glutTimers to timer_create -> own wchar glut/alut or SDL2? xlut :)
+xlMatrixOrtho2D, xlMatrixOrtho, xlMatrixPerspective, ...
+do viewport and screen, font with, height -> size, image too, more bind =; bind->, review all Gen/Del/Set/Get, ...
+XLlight
+no clear approach, explicitly clean paths/strings
+xlSetString(XL_STRING_PARAM1, "bonename"); xlGetInteger(XL_BONE_PARAM); ? mmm, no go, for starters, move all the gets sets (ex in Mod) to xlGet/Set.hc
+macroify the mime loading/compiling, all types have import even if empty, void (xlLog("No library handler. If you are interested, please provide info about anyone that loads it, thanks")) assimp?
+XLwindow
+remove bpp, asume 4 ?// FIXME: RGBA hardcoded
+use libfile, if image xlMetImportImg, else if sound xlMetImportSnd, else, ...
+xlMetImportAs, *ImportAs("a.ttf", XL_IMAGE) XL_FONT, ...,  "a.mpg" XL_SOUND, XL_MULTIMEDIA?...
+revamp the demos and make a tests/ for non demo
+use camera viewport/modelview matrices instead of glGet* (serialization) man gluOrtho, gluOrtho2D, gluPerspective, glFrustum
+xlEnable(XL_(VIEW)_CULL); CamBegin? you don't say Draw or CullDraw, you enable culling or not & draw
+matrices: modelview, projection, matrix, color
+beautify/fix/test model blending/morph, weighted animation model blending
+xlObjUniq, xlObjSmooth, ObjDraw VertexArrays (xlObj(Gen/Delete)VertexArrays) xlObjDrawVertexArrays? use gprof/gcov (glPolygonMode to do wire/point)
+xlc, xld, xlv, xls (mime handling, fully understand magic (man file))
+fix xlData mime metadata importing, compile .png's
+think about a pair/color/point/vector/matrix operations scheme for xlimage xlImageAnd :)
+xlEnable(XL_TIMING);
+texture generations is not following GEN_S, GEN_T, GEN_R & GEN_Q
+handle no depth on fill, yes on modern, wire, solid
+xlDraw.h/.c ? ObjDraw, ImgDraw (texture quad)
+Unify all the Draws in a Draw(mode), xlObjGlyph(mode) ,+ Image outline! -> xlImgGlyph(mode), xlObjDraw(mode) (+Solid, +Wire, ++ Coords (SOLID, SOLID_EXTERNAL_COORDS, WIRE, WIRE_COORDS))
+XLobject wire mode? xlObjString OUTLINE? -> XL_MODE_TEXTURE, XL_MODE_OUTLINE, XL_MODE_FILL, XL_MODE_WIRE, XL_MODE_SOLID, ..., xlTexString
+make XLobject texcoords optional
+XLobject bound dimensions -> Xlvector
+per frame bounds
+Fix xlModel, turn operative
+XLanim for surface, model, op? i guess nope, bind and do on surf
+objects vertex coords should follow MODELVIEW ?
+font (ttf only?) metatagging, own font format, char a; contours 3; vertices 4; countour 0.0 0.1 0.4 0.32; ... ; . all chars* or chars a b c e f line?, beziers or unpacked*?
+Better Images Stock Flare.xl? xlImageAssignFlare?
+Blender MetaData, Y-Up Add-Ons
+fix finally blender Yvs.Z
+Note this is XL_COLOR_PARAMS(xlColorBlue) -> FIXME: XL_COLOR_UNZIP(xlColorBlue) glClearColor(XL_COLOR_UNZIP(xlColorBlue)) glClearColor(XL_COLOR_R(xlColorBlue), XL_COLOR_G(xlColorBlue), XL_COLOR_B(xlColorBlue), XL_COLOR_A(xlColorBlue));
+define font tesselation level, xlFont xlText? character table cache with optional precaching?
+xlGet(xlComment)?
+glTranslater -> glTranslatef glTranslated, ...
+xlRealTMP, xlRealTMP1, ..., xlRealTwo, Three ... Nine, Ten, Twenty, 250
+xlLog target (add XLfile), level (INFO, WARNING, ERROR), 
+XLsphere, XLfrustum?
+Header, Body, Runtime runtime?
+xlGetInteger (XL_TICKS, XL_SECONDS), XL_TICKS_PER_SECOND, xlGetReal (XL_SECONDS) XL_RANDOM
+reduce demos/data image and usual usage to 64*/128 for patterns, 128*/256 uvmaps, adjust texcoords if needed, adjust texcoords if needed
+lua or python? xlparticles
+improved scripting (c plugin scripting it is (dlopen), base xlplugin with default functions & api for user plugins)
+
+xlInput, xlWindow (add XLfile/arguments config)
+xlPort -> xlScript?
+xlTexturizer -> xlPair
+
+xlObject Material animated -> Texture animated?
+xlScene? world? environment? alpha last
+
+xlMesh sound?
+md3! 16_Keyframe_Interpolation
+
+sound, audiomagick?? ladspa, festival, espeak lib?
+inverse? transposedrotation, positiontransposedrotation?
+move to gl 2.1
+
+how to move material metadata to image properties: convert a.png -set comment "This is edited" b.png; identivy --verbose b.png

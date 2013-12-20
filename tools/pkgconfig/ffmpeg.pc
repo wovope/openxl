@@ -1,0 +1,10 @@
+prefix=/usr
+exec_prefix=${prefix}
+libdir=/usr/lib
+includedir=/usr/include
+
+Name: ffmpeg
+Description: FFMPEG libav library
+Requires: libavcodec libavfilter libavformat libavutil libpostproc libswresample
+Version: 1.0.0
+Libs: -L${libdir}

@@ -1,0 +1,11 @@
+prefix=/usr
+exec_prefix=${prefix}
+libdir=/usr/lib
+includedir=/usr/include
+
+Name: xlglut
+Description: XL OpenGL Utility library
+Requires: gl glu glew
+Version: 1.0.0
+Libs: -L${libdir} -lglut
+Libs.private: -lm

@@ -1,0 +1,40 @@
+type material
+name Generic
+version 0.0.136
+author Juan Manuel Borges Caño
+date 2013
+copyright 2012, 2013 Juan Manuel Borges Caño
+license GNU General Public License, Version 3, 29 June 2007 (GPLv3+)
+url http://code.google.com/p/openxlibrary
+email juanmabcmail@gmail.com
+tool vim - Vi IMproved, a programmers text editor
+comment demos/data
+xl 0.0.138
+properties 3
+name manual
+image Manual.xlc
+alpha 1.000000
+ambient 1.000000 1.000000 1.000000
+diffuse 1.000000 1.000000 1.000000
+specular 1.000000 1.000000 1.000000
+emission 0.000000 0.000000 0.000000
+shininess 0.000000
+matrix 1.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 1.0
+name light
+image Manual.xlc
+alpha 0.50000
+ambient 0.200000 0.200000 0.200000
+diffuse 0.200000 0.200000 0.200000
+specular 1.000000 1.000000 1.000000
+emission 0.000000 0.000000 0.000000
+shininess 0.000000
+matrix 1.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 1.0
+name trans
+image Manual.xlc
+alpha 0.2500000
+ambient 0.400000 0.400000 0.400000
+diffuse 0.400000 0.400000 0.400000
+specular 1.000000 1.000000 1.000000
+emission 1.000000 1.000000 1.000000
+shininess 0.500000
+matrix 1.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 1.0

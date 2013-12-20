@@ -1,0 +1,16 @@
+type viewport
+name Default
+version 0.0.138
+author Juan Manuel Borges Caño
+date 2013
+copyright 2012, 2013 Juan Manuel Borges Caño
+license GNU General Public License, Version 3, 29 June 2007 (GPLv3+)
+url http://code.google.com/p/openxlibrary
+email juanmabcmail@gmail.com
+tool vim - Vi IMproved, a programmers text editor
+comment demos/data
+xl 0.0.138
+properties 1
+name default
+position 0 0
+size 320 240

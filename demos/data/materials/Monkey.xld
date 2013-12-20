@@ -1,0 +1,40 @@
+type material
+name Generic
+version 0.0.136
+author Juan Manuel Borges Caño
+date 2013
+copyright 2012, 2013 Juan Manuel Borges Caño
+license GNU General Public License, Version 3, 29 June 2007 (GPLv3+)
+url http://code.google.com/p/openxlibrary
+email juanmabcmail@gmail.com
+tool vim - Vi IMproved, a programmers text editor
+comment demos/data
+xl 0.0.136
+properties 3
+name Wood
+image Wood.xlc
+alpha 1.0
+ambient 1.0 1.0 1.0
+diffuse 1.0 1.0 1.0
+specular 1.0 1.0 1.0
+emission 0.0 0.0 0.0
+shininess 0.0
+matrix 1.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 1.0
+name light
+image Wood.xlc
+alpha 1.0
+ambient 0.2 0.2 0.2
+diffuse 0.2 0.2 0.2
+specular 1.0 1.0 1.0
+emission 0.0 0.0 0.0
+shininess 0.0
+matrix 1.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 1.0
+name trans
+image Wood.xlc
+alpha 0.25
+ambient 0.4 0.4 0.4
+diffuse 0.4 0.4 0.4
+specular 1.0 1.0 1.0
+emission 0.0 0.0 0.0
+shininess 0.5
+matrix 1.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 1.0

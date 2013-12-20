@@ -1,0 +1,99 @@
+# Configuration
+m4/
+configure
+aclocal.m4
+autom4te.cache
+depcomp
+compile
+py-compile
+config.*
+mingw32-config.cache
+stamp-*
+libtool
+ltmain.sh
+missing
+test-driver
+glib-gettextize
+glib-zip
+gtk-doc.make
+install-sh
+Makefile.in
+Makefile
+INSTALL
+
+# Edition
+.*.swp
+.sw?
+TAGS
+
+# Compilation
+.deps
+*.o
+*.lo
+*.a
+*.la
+.libs
+xl.pc
+
+# Profilation
+glib-lcov.info
+glib-lcov
+*.gcno
+*.gcda
+*.gcov
+
+# Execution
+*.out
+*.exe
+*.log
+
+# Tools
+tools/xlc
+tools/xld
+tools/xlinfo
+*.xlc
+
+# Demonstration
+demos/xlvector
+demos/xlvectorassign
+demos/xlvectorcmp
+demos/xlmatrix
+demos/xlmatrixassign
+demos/xlmatrixcmp
+demos/xlc
+demos/xld
+demos/xlinfo
+demos/xldatadirs
+demos/xlstuff
+demos/xlimage
+demos/xlimagecube
+demos/xlimagestring
+demos/xlsurfacecube
+demos/xlobjectstring
+demos/xlcolors
+demos/xlpoints
+demos/xlpairs
+demos/xlvectors
+demos/xlobject
+demos/xlmodel
+demos/xlparticles
+demos/xlcharacters
+demos/xlport
+demos/xlcity
+
+# Games
+xlToyMachines/xlToyMachines
+xlSpaceWar/xlSpaceWar
+xlSoccer/xlSoccer
+
+# Distribution
+xl-*.tar.bz2
+
+# Unknown
+*.stp
+*.trs
+*.sourcefiles
+*.rc
+*.def
+*.test 
+

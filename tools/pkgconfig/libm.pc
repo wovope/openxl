@@ -1,0 +1,10 @@
+prefix=/usr
+exec_prefix=${prefix}
+libdir=/usr/lib
+includedir=/usr/include
+
+Name: libm
+Description: Math C Library (libm)
+Requires:
+Version: 1.0.0
+Libs: -L${libdir} -lm

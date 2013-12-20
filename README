@@ -1,0 +1,39 @@
+**  ** **     **  ** **     **  ** **    **  ** **     **  ** **     **  ** **  
+ ****  **      ****  **      ****  **     ****  **      ****  **      ****  **  
+**  ** ****   **  ** ****   **  ** ****  **  ** ****   **  ** ****   **  ** ****
+
+                   Open X Library: Multipurpose C Open Engine
+
+                                  **  ** **  
+                                   ****  **  
+                                  **  ** ****
+
+                   Licensed GPLv3 by Juan Manuel Borges Caño
+                  * Homepage <http://code.google.com/p/openxl>
+                     * Mail <mailto:juanmabcmail@gmail.com>
+                   * Blog <http://juanmabcblog.blogspot.com>
+               Copyright (C) 2012 - 2013 Juan Manuel Borges Caño
+
+**  ** **     **  ** **     **  ** **    **  ** **     **  ** **     **  ** **  
+ ****  **      ****  **      ****  **     ****  **      ****  **      ****  **  
+**  ** ****   **  ** ****   **  ** ****  **  ** ****   **  ** ****   **  ** ****
+
+Open X Library: Multipurpose C Open Engine
+
+OpenXL is a multipurpose c open engine. A proceduralization library. It can be seen as the artist, the designer, even the programmer of your project. It is designed so it has some function power that could turn into any task, performing a texture, a pixel art image, a mesh, a model, a level, a song, etc, ... The idea is to take the part of the missing components on your team.
+
+$ git clone http://code.google.com/p/openxl
+$ cd xl
+$ autoreconf -i
+$ ./configure PKG_CONFIG_PATH="$(pwd)/tools/pkgconfig"
+$ make
+# make install
+
+OpenXL (Open X Library) licensed GPLv3 by Juan Manuel Borges Caño
+* homepage <http://code.google.com/p/openxl>
+* mail <mailto:juanmabcmail@gmail.com>
+* blog <http://juanmabcblog.blogspot.com>
+Payments through blog with BitCoin, Western Union, PayPal and/or thanks through email welcome :-)
+Copyright (C) 2012 - 2013 Juan Manuel Borges Caño
+
+Proceed to NEWS, AUTHORS, COPYING, ChangeLog, PAYMENTS

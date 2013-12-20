@@ -1,0 +1,31 @@
+#! /usr/bin/env bash
+
+# xl: xl gimp image filter tool
+# Copyright (C) 2012 Juan Manuel Borges Caño
+
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+fop="$1" # scale seamless enhance emboss oilify cartoon mosaic cubism sharpen sobel laplace edgesobel edgelaplace neon dog noise spread desaturate softglow gauss 
+fin="$2" # file in image
+if [[ -n "$3" ]]
+then
+	fout="$3"
+else
+	fout=${fin##*/}
+	fout=${fout%%.*}
+	fout="$fout${fop^}.jpg"
+fi
+
+echo "$fop $fin $fout"
+gimp -i -b '(xl-make-'"$fop"' "'"$fin"'" "'"$fout"'")' -b '(gimp-quit 0)'

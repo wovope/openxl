@@ -1,0 +1,9 @@
+2013-12-20 openxl <http://code.google.com/p/openxl>
+	* Better Distribution, Better Documentation
+
+2012-12-06 openxl <http://code.google.com/p/openxl>
+	* improvements: xlImage api, gimp scripts + cartoon++ emboss++ + enhance softglow shift dog, model material name & bone name api, xlLogOverride api, use GL_LINEAR instead of GL_NEAREST on textures, add copyright notices on each relevant file, switch hosting url, gimp and blender scripts cleanup, gimp filters, xlDebug, tp gimp, action morphing, heightmap model, global animation transform handling, xlMaterialBegin/End api, particles, doc folder, House model, Mesh and Model split, port management, demo rework, updated demo data, pair blender exporters to new formats, xlCamera, xlParser, material matrix, camera port, Animated*, camera frustum culling.
+	* fixes: math result first, allow statics, port to new blender, idUnload API, some while using xlParser, orthogonal camera not taken into account, xlMaterial & xlModel cleanup.
+
+2012-07-28 openxl <http://code.google.com/p/openxl>
+	* Project start

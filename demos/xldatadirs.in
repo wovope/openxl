@@ -1,0 +1,6 @@
+#! /usr/bin/env bash
+
+if [[ ! -d data/images && ! -d data/fonts && ! -d data/materials && ! -d data/surfaces && ! -d data/objects && ! -d data/models && ! -d data/particles && ! -d data/cameras && ! -d data/operators && ! -d data/viewports && ! -d data/windows ]]
+then
+	mkdir -p data/images/ data/fonts/ data/materials/ data/surfaces/ data/objects/ data/models/ data/particles/ data/cameras/ data/operators/ data/viewports/ data/windows/
+fi

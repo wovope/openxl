@@ -1,0 +1,24 @@
+texture pack: texture packs based on filters
+
+Copyright (C) 2012 Juan Manuel Borges Caño
+
+	This program is free software: you can redistribute it and/or modify
+	it under the terms of the GNU General Public License as published by
+	the Free Software Foundation, either version 3 of the License, or
+	(at your option) any later version.
+
+	This program is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	GNU General Public License for more details.
+
+	You should have received a copy of the GNU General Public License
+	along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+tp (texture pack) homepage <http://code.google.com/p/texturepacks>
+
+texture pack is a texture pack library based on filters. It is formed by several packs from some base images that are then proceduralized or filtered into more images.
+
+tp (texture pack) uses and contributes to mkproject and xl technologies:
+	tp (texture pack) was generated with mkproject (make project) technology < http://code.google.com/p/makeproject >
+	tp (texture pack) was designed in xl (x library) technology < http://code.google.com/p/openxlibrary >

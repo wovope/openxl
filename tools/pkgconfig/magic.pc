@@ -1,0 +1,10 @@
+prefix=/usr
+exec_prefix=${prefix}
+libdir=/usr/lib
+includedir=/usr/include
+
+Name: magic
+Description: Magic Number Recognition Library (libmagic)
+Requires:
+Version: 1.0.0
+Libs: -L${libdir} -lmagic

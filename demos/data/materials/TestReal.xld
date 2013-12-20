@@ -1,0 +1,40 @@
+type material
+name Generic
+version 0.0.136
+author Juan Manuel Borges Caño
+date 2013
+copyright 2012, 2013 Juan Manuel Borges Caño
+license GNU General Public License, Version 3, 29 June 2007 (GPLv3+)
+url http://code.google.com/p/openxlibrary
+email juanmabcmail@gmail.com
+tool vim - Vi IMproved, a programmers text editor
+comment demos/data
+xl 0.0.136
+properties 3
+name watter
+image ../../../../images/RealPack-004/Photo-0037/Photo-0037-ScaleSeamlessGaussOilifyEdgesobel.jpg
+alpha 1.0
+ambient 0.1 0.1 0.1
+diffuse 1.0 1.0 1.0
+specular 1.0 1.0 1.0
+emission 0.0 0.0 0.0
+shininess 0.0
+matrix 1.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 1.0
+name arena
+image ../../../../images/RealPack-001/Photo-0002/Photo-0002-ScaleSeamlessCartoonEmbossLaplace.jpg
+alpha 1.0
+ambient 0.1 0.1 0.1
+diffuse 1.0 1.0 1.0
+specular 1.0 1.0 1.0
+emission 0.0 0.0 0.0
+shininess 0.0
+matrix 1.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 1.0
+name bump
+image ../../../../images/RealPack-003/Photo-0021/Photo-0021-ScaleSeamlessMosaicEdgesobel.jpg
+alpha 1.0
+ambient 0.1 0.1 0.1
+diffuse 1.0 1.0 1.0
+specular 1.0 1.0 1.0
+emission 0.0 0.0 0.0
+shininess 0.0
+matrix 1.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 1.0
