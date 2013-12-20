@@ -4,7 +4,7 @@ AC_CONFIG_HEADERS(config.h)
 AM_INIT_AUTOMAKE(no-dist-gzip dist-bzip2)
 
 AC_SUBST(PACKAGE_AUTHOR, ["Juan Manuel Borges Caño"])
-AC_SUBST(PACKAGE_DESCRIPTION, ["Multipurpose C Open Game Engine"])
+AC_SUBST(PACKAGE_DESCRIPTION, ["Multiple Purpose C Open Game Engine"])
 AC_SUBST(PACKAGE_URL, ["http://code.google.com/p/openxl"])
 AC_SUBST(PACKAGE_MONTH, [$(LANG=C date '+%B')])
 AC_SUBST(PACKAGE_YEAR, [$(LANG=C date '+%Y')])
@@ -18,8 +18,8 @@ AC_DEFINE(PACKAGE_URL, ["http://code.google.com/p/openxl"], [Define to the full 
 AC_DEFINE(PACKAGE_DATE, ["Jun 2013"], [Define to the full date of this package.])
 AC_DEFINE(PACKAGE_COPYRIGHT, ["2012, 2013 Juan Manuel Borges Caño"], [Define to the full copyright of this package.])
 AC_DEFINE(PACKAGE_LICENSE, ["GNU General Public License, Version 3, 29 June 2007 (GPLv3+)"], [Define to the full license of this package.])
-AC_DEFINE(PACKAGE_DESCRIPTION, ["Multipurpose C Open Engine"], [Define to the full description of this package.])
-AC_DEFINE(PACKAGE_TOOL, ["openxl - Open X Library, Multipurpose C Open Engine"], [Define to the full tool tag of this package.])
+AC_DEFINE(PACKAGE_DESCRIPTION, ["Multiple Purpose C Open Engine"], [Define to the full description of this package.])
+AC_DEFINE(PACKAGE_TOOL, ["openxl - Open X Library, Multiple Purpose C Open Engine"], [Define to the full tool tag of this package.])
 
 # Checks for programs.
 AC_PROG_CC
@@ -50,5 +50,5 @@ AC_SUBST(XL_CFLAGS)
 
 # Checks for library functions.
 
-AC_CONFIG_FILES([Makefile src/Makefile xl.pc tools/Makefile doc/Makefile demos/Makefile apps/Makefile games/Makefile games/xlSpaceWar/Makefile games/xlToyMachines/Makefile])
+AC_CONFIG_FILES([Makefile src/Makefile xl.pc tools/Makefile doc/Makefile demos/Makefile apps/Makefile games/Makefile games/xlSpaceWars/Makefile games/xlToyMachines/Makefile])
 AC_OUTPUT

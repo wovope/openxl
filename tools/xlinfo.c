@@ -4,7 +4,7 @@
  ****  **      ****  **      ****  **     ****  **      ****  **      ****  **  
 **  ** ****   **  ** ****   **  ** ****  **  ** ****   **  ** ****   **  ** ****
 
-                   Open X Library: Multipurpose C Open Engine
+		 Open X Library: Multiple Purpose C Open Engine
 
                                   **  ** **  
                                    ****  **  

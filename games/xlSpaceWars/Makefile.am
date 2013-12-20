@@ -1,15 +1,15 @@
 bin_PROGRAMS = \
-	xlSpaceWar
+	xlSpaceWars
 
-xlSpaceWar_SOURCES = \
-	xlSpaceWar.c
-xlSpaceWar_CPPFLAGS = \
+xlSpaceWars_SOURCES = \
+	xlSpaceWars.c
+xlSpaceWars_CPPFLAGS = \
 	-Wall \
 	$(XL_DEPS_CFLAGS) \
 	$(XL_REAL_CFLAGS) \
 	$(XL_SIMD_CFLAGS) \
 	$(XL_CFLAGS) \
 	-I$(top_srcdir)/src
-xlSpaceWar_LDADD = \
+xlSpaceWars_LDADD = \
 	$(top_builddir)/src/libxl.la
 

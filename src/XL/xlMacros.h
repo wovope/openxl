@@ -1220,7 +1220,7 @@
 	L" ****  **      ****  **      ****  **     ****  **      ****  **      ****  **  \n" \
 	L"**  ** ****   **  ** ****   **  ** ****  **  ** ****   **  ** ****   **  ** ****\n" \
 	L"                                                                                \n" \
-	L"                   Open X Library: Multipurpose C Open Engine                   \n" \
+        L"                   Open X Library: Multiple Purpose C Open Engine               \n" \
 	L"                                                                                \n" \
 	L"                                  **  ** **                                     \n" \
 	L"                                   ****  **                                     \n" \

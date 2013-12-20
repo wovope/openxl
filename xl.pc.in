@@ -4,7 +4,7 @@ libdir=@libdir@
 includedir=@includedir@
 
 Name: openxl
-Description: Open X Library, Multipurpose C Open Engine 
+Description: Open X Library, Multiple Purpose C Open Engine 
 Requires: gl glu glut MagickWand
 Version: @VERSION@
 Libs: -L${libdir} -lxl
