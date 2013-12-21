@@ -1,5 +1,6 @@
 xld_data = \
 	data/images/Tux.png \
+	data/images/Tux.gif \
 	data/images/Manual.xld \
 	data/images/Flake.png \
 	data/images/Flake2.png \
