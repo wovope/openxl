@@ -82,9 +82,10 @@ demos/xlport
 demos/xlcity
 
 # Games
-xlToyMachines/xlToyMachines
-xlSpaceWar/xlSpaceWar
-xlSoccer/xlSoccer
+games/xlToyMachines/xlToyMachines
+games/xlSpaceWar/xlSpaceWars
+games/xlSoccer/xlSoccer
+games/xlBasket/xlBasket
 
 # Distribution
 xl-*.tar.bz2
