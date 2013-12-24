@@ -1,1 +1,1 @@
-EXTRA_DIST = xlpairs xlcolors xlpoints xlvectors youtube
+EXTRA_DIST = xlpairs xlcolors xlpoints xlvectors youtube OpenXL.gif
