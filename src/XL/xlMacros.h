@@ -1248,7 +1248,7 @@
 	L"                                                                                \n" \
 	L"		       XL Vendor: " XL_STRING_FORMAT L"\n" \
 	L"		  XL Renderer: " XL_STRING_FORMAT L"\n" \
-	L"			       XL Version: " XL_STRING_FORMAT L"\n" \
+	L"			     XL Version: " XL_STRING_FORMAT L"\n" \
 	L"                                                                                \n" \
 	L"**  ** **     **  ** **     **  ** **    **  ** **     **  ** **     **  ** **  \n" \
 	L" ****  **      ****  **      ****  **     ****  **      ****  **      ****  **  \n" \
