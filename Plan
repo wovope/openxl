@@ -1,5 +1,7 @@
 Merge ale, ml
+Straight to xlTerminal stage 1
 Straight to xlSpaceWars: all possible in engine for reuse, random ships, random stages, random fires, random sounds? (here at some point optimize xlFont double vertices, etc, etc...)
 Image Logo & Animation Logo (Video too)
+An xlCapture API (Image, Audio, Video): so it is easy to 'YouTube'/Demo it
 Straight to xlToyMachines: reusing xlSpaceWars engine benefits
 Wiki Up: xlSpaceWars, xlToyMachines, (links to friend projects (freecode.com tags)), xlDemos, xlTutorial, 

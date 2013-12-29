@@ -50,5 +50,5 @@ AC_SUBST(XL_CFLAGS)
 
 # Checks for library functions.
 
-AC_CONFIG_FILES([Makefile src/Makefile xl.pc tools/Makefile doc/Makefile demos/Makefile apps/Makefile games/Makefile games/xlSpaceWars/Makefile games/xlToyMachines/Makefile])
+AC_CONFIG_FILES([Makefile src/Makefile xl.pc tools/Makefile doc/Makefile demos/Makefile apps/Makefile apps/xlTerminal/Makefile games/Makefile games/xlSpaceWars/Makefile games/xlToyMachines/Makefile])
 AC_OUTPUT

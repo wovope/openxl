@@ -81,7 +81,8 @@ demos/xlcharacters
 demos/xlport
 demos/xlcity
 
-# Games
+# Apps/Games
+apps/xlTerminal/xlTerminal
 games/xlToyMachines/xlToyMachines
 games/xlSpaceWars/xlSpaceWars
 games/xlSoccer/xlSoccer
