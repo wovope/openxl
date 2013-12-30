@@ -1,8 +1,21 @@
+ _______________________________________________________________________________________
+/\                                                                                      \
+\_|                   Open X Library: Multiple Purpose C Open Engine                    |
+  |                                                                                     |
+  |                     OpenXL is a multiple purpose c open engine.                     |
+  |                            A proceduralization library.                             |
+  |  It can be seen as the artist, the designer, even the programmer of your project.   |
+  |     It is designed so it has some function power that could turn into any task,     |
+  | performing a texture, a pixel art image, a mesh, a model, a level, a song, etc, ... |
+  |        The idea is to take the part of the missing components on your team.         |
+  |   __________________________________________________________________________________|_
+   \_/____________________________________________________________________________________/
+
 **  ** **     **  ** **     **  ** **    **  ** **     **  ** **     **  ** **  
  ****  **      ****  **      ****  **     ****  **      ****  **      ****  **  
 **  ** ****   **  ** ****   **  ** ****  **  ** ****   **  ** ****   **  ** ****
 
-                   Open X Library: Multiple Purpose C Open Engine
+		 Open X Library: Multiple Purpose C Open Engine
 
                                   **  ** **  
                                    ****  **  
@@ -18,10 +31,6 @@
  ****  **      ****  **      ****  **     ****  **      ****  **      ****  **  
 **  ** ****   **  ** ****   **  ** ****  **  ** ****   **  ** ****   **  ** ****
 
-Open X Library: Multiple Purpose C Open Engine
-
-OpenXL is a multiple purpose c open engine. A proceduralization library. It can be seen as the artist, the designer, even the programmer of your project. It is designed so it has some function power that could turn into any task, performing a texture, a pixel art image, a mesh, a model, a level, a song, etc, ... The idea is to take the part of the missing components on your team.
-
 $ git clone http://code.google.com/p/openxl
 $ cd openxl
 $ autoreconf -i
@@ -33,7 +42,6 @@ OpenXL (Open X Library) licensed GPLv3 by Juan Manuel Borges Caño
 * homepage <http://code.google.com/p/openxl>
 * mail <mailto:juanmabcmail@gmail.com>
 * blog <http://juanmabcblog.blogspot.com>
-:-) Thanks through email or/and Payments (suggested 5 bucks) through blog with BitCoin, Flattr, Western Union, PayPal welcome :-)
-Copyright (C) 2012 - 2013 Juan Manuel Borges Caño
+Copyright (C) 2012 - 2013 Juan Manuel Borges Caño :-) Thanks through email (suggested subject openxl) or/and Payments (suggested 5 bucks) through blog with BitCoin, Flattr, Western Union, PayPal welcome :-)
 
 Proceed to NEWS, AUTHORS, COPYING, ChangeLog, PAYMENTS
