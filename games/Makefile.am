@@ -1,1 +1,1 @@
-SUBDIRS = xlSpaceWars xlToyMachines
+SUBDIRS = xlSpaceWars xlToyMachines xlAdventure
