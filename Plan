@@ -1,4 +1,4 @@
-XLskeleton (bones, XLbone?), XLanimation (static XLvertices/XLmesh?, dynamic XLmatrix list)
+embed or port libassimp to C, support .obj, .blend, .3ds?, ... conversion! XLskeleton (bones, XLbone?), XLanimation (static XLvertices/XLmesh?, dynamic XLmatrix list)
 Merge ale, ml
 Straight to xlTerminal stage 1
 Straight to xlSpaceWars: all possible in engine for reuse, random ships, random stages, random fires, random sounds? (here at some point optimize xlFont double vertices, etc, etc...)
