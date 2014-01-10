@@ -92,6 +92,9 @@ games/xlBasket/xlBasket
 # Distribution
 xl-*.tar.bz2
 
+#Documentation
+openxl.wiki
+
 # Unknown
 *.stp
 *.trs
@@ -99,4 +102,3 @@ xl-*.tar.bz2
 *.rc
 *.def
 *.test 
-
