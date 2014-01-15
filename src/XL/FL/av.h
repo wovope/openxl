@@ -92,7 +92,7 @@ unsigned int
 fStreamFormat(FStream *stream);
 
 unsigned int
-fStreamReadData(FStream *stream, uint8_t *buffer);
+fStreamReadSamples(FStream *stream, uint8_t *buffer);
 
 void
 fStreamBufferData(FStream *stream, ALuint bfr);

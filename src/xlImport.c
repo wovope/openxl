@@ -255,7 +255,7 @@ xlSndImport(const XLpath filepath)
 	xlLog(L"%s: bps: %i\n", filepath, sound->header.bps);
 
 	sound->body.samples = xlMemoryAlloc(sound->header.length * sound->header.bps * sound->header.channels);
-	fStreamReadData(&stream, sound->body.samples);
+	fStreamReadSamples(&stream, sound->body.samples);
 
 	fStreamUnload(&stream);
 }

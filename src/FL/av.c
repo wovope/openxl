@@ -455,9 +455,9 @@ fStreamFormat(FStream *stream)
 }
 
 unsigned int
-fStreamReadData(FStream *stream, uint8_t *buffer)
+fStreamReadSamples(FStream *stream, uint8_t *buffer)
 {
-	fStreamReadChunk(stream, stream->audio.size, buffer);
+	return fStreamReadChunk(stream, stream->audio.size, buffer);
 }
 
 void
