@@ -99,40 +99,15 @@ xlGetMetaHeader(void);
 XLmetadata *
 xlGetMetaData(void);
 
-XLimage *
-xlGetImage(void);
+#define _xlGetIdentifier(Id, identifier, Identifier, Identifiers, IDENTIFIER) \
+	XL ## identifier *\
+	xlGet ## Identifier(void);
 
-XLfont *
-xlGetFont(void);
+xlIdForEach(_xlGetIdentifier)
+
+#undef _xlGetIdentifier
 
 XLcolor *
 xlGetImgPixels(void);
-
-XLmaterial *
-xlGetMaterial(void);
-
-XLsurface *
-xlGetSurface(void);
-
-XLobject *
-xlGetObject(void);
-
-XLmodel *
-xlGetModel(void);
-
-XLparticles *
-xlGetParticles(void);
-
-XLcamera *
-xlGetCamera(void);
-
-XLoperator *
-xlGetOperator(void);
-
-XLviewport *
-xlGetViewport(void);
-
-XLwindow *
-xlGetWindow(void);
 
 #endif

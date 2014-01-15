@@ -1911,19 +1911,17 @@ xlGetMetaData(void)
 	return metadatas->data[metadatas->bind];
 }
 
-XLimage *
-xlGetImage(void)
-{
-	XLstore *images = xlStores.data[xlImages];
-	return images->data[images->bind];
-}
+#define _xlGetIdentifier(Id, identifier, Identifier, Identifiers, IDENTIFIER) \
+	XL ## identifier *\
+	xlGet ## Identifier(void) \
+	{ \
+		XLstore *store = xlStores.data[xl ## Identifiers]; \
+		return store->data[store->bind]; \
+	}
+		
+xlIdForEach(_xlGetIdentifier)
 
-XLfont *
-xlGetFont(void)
-{
-	XLstore *fonts = xlStores.data[xlFonts];
-	return fonts->data[fonts->bind];
-}
+#undef _xlGetIdentifier
 
 XLcolor *
 xlGetImgPixels(void)
@@ -1934,67 +1932,3 @@ xlGetImgPixels(void)
 	return bind->body.pixels;
 }
 
-XLmaterial *
-xlGetMaterial(void)
-{
-	XLstore *materials = xlStores.data[xlMaterials];
-	return materials->data[materials->bind];
-}
-
-XLsurface *
-xlGetSurface(void)
-{
-	XLstore *surfaces = xlStores.data[xlSurfaces];
-	return surfaces->data[surfaces->bind];
-}
-
-XLobject *
-xlGetObject(void)
-{
-	XLstore *objects = xlStores.data[xlObjects];
-	return objects->data[objects->bind];
-}
-
-XLmodel *
-xlGetModel(void)
-{
-	XLstore *models = xlStores.data[xlModels];
-	return models->data[models->bind];
-}
-
-XLparticles *
-xlGetParticles(void)
-{
-	XLstore *particleses = xlStores.data[xlParticles];
-	return particleses->data[particleses->bind];
-}
-
-XLcamera *
-xlGetCamera(void)
-{
-	XLstore *cameras = xlStores.data[xlCameras];
-	return cameras->data[cameras->bind];
-}
-
-XLoperator *
-xlGetOperator(void)
-{
-	XLstore *operators = xlStores.data[xlOperators];
-	return operators->data[operators->bind];
-}
-
-XLviewport *
-xlGetViewport(void)
-{
-	XLstore *store = xlStores.data[xlViewports];
-
-	return store->data[store->bind];
-}
-
-XLwindow *
-xlGetWindow(void)
-{
-	XLstore *store = xlStores.data[xlWindows];
-
-	return store->data[store->bind];
-}

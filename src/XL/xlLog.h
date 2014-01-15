@@ -26,7 +26,7 @@ xlMetLog(void);
 
 #define _xlIdLog(Id, identifier, Identifier, Identifiers, IDENTIFIER) \
 	void \
-	xl ## Id ## Log (void);
+	xl ## Id ## Log(void);
 		
 xlIdForEach(_xlIdLog)
 
