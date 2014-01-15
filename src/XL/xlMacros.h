@@ -454,6 +454,8 @@
 #define GL_PIXEL GL_FLOAT
 #define Pixel FloatPixel
 
+#define XLsample XLuint8
+
 #ifdef XL_SIMD
 	#define XL_PAIR_ARRAY(v) \
 		((v)->value.array)

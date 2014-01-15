@@ -116,6 +116,12 @@ xlGetIntegerv(XLenum pname, XLint *params)
 			*params = sounds->bind;
 			break;
 		}
+		case XL_SOUND_CHANNELS:
+		{
+			XLsound *bind = xlGetSound();
+			*params = bind->header.channels;
+			break;
+		}
 		case XL_SOUND_FREQUENCY:
 		{
 			XLsound *bind = xlGetSound();
@@ -1905,68 +1911,6 @@ xlGetStore(XLenum pname)
 
 		xlIdForEach(_xlGetIdStore)
 
-		/*
-		case XL_IMAGE:
-		{
-			return xlStores.data[xlImages];
-			break;
-		}
-		case XL_SOUND:
-		{
-			return xlStores.data[xlSounds];
-			break;
-		}
-		case XL_FONT:
-		{
-			return xlStores.data[xlFonts];
-			break;
-		}
-		case XL_MATERIAL:
-		{
-			return xlStores.data[xlMaterials];
-			break;
-		}
-		case XL_SURFACE:
-		{
-			return xlStores.data[xlSurfaces];
-			break;
-		}
-		case XL_OBJECT:
-		{
-			return xlStores.data[xlObjects];
-			break;
-		}
-		case XL_MODEL:
-		{
-			return xlStores.data[xlModels];
-			break;
-		}
-		case XL_PARTICLES:
-		{
-			return xlStores.data[xlParticles];
-			break;
-		}
-		case XL_CAMERA:
-		{
-			return xlStores.data[xlCameras];
-			break;
-		}
-		case XL_OPERATOR:
-		{
-			return xlStores.data[xlOperators];
-			break;
-		}
-		case XL_VIEWPORT:
-		{
-			return xlStores.data[xlViewports];
-			break;
-		}
-		case XL_WINDOW:
-		{
-			return xlStores.data[xlWindows];
-			break;
-		}
-		*/
 		default:
 			xlSetError(XL_ERROR_VALUE_INVALID_ENUM);
 			return NULL;
@@ -2011,7 +1955,7 @@ xlGetImgPixels(void)
 	return bind->body.pixels;
 }
 
-XLvoid *
+XLsample *
 xlGetSndSamples(void)
 {
 	XLstore *sounds = xlStores.data[xlSounds];

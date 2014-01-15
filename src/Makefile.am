@@ -82,6 +82,7 @@ libxl_la_SOURCES = \
 	XL/xlSync.h xlSync.c \
 	XL/xlDraw.h xlDraw.c \
 	XL/xlImage.h xlImage.c \
+	XL/xlSound.h xlSound.c \
 	XL/xlFont.h xlFont.c \
 	XL/xlMaterial.h xlMaterial.c \
 	XL/xlSurface.h xlSurface.c \
@@ -96,6 +97,7 @@ libxl_la_SOURCES = \
 	XL/xlPort.h xlPort.c \
 	XL/xlTexturizer.h xlTexturizer.c \
 	XL/id.h XL/unid.h \
+	XL/FL/av.h FL/av.c \
 	XL/FL/xlflut.h \
 	XL/GL/xlglut.h \
 	XL/AL/xlalut.h \

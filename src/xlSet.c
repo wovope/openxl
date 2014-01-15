@@ -117,6 +117,12 @@ xlSetIntegerv(XLenum pname, XLint *params)
 			sounds->bind = *params;
 			break;
 		}
+		case XL_SOUND_CHANNELS:
+		{
+			XLsound *bind = xlGetSound();
+			bind->header.channels = *params;
+			break;
+		}
 		case XL_SOUND_FREQUENCY:
 		{
 			XLsound *bind = xlGetSound();

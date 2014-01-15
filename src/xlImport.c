@@ -1,5 +1,6 @@
 #include "XL/xlImport.h"
 #include "XL/xl.h"
+#include "XL/FL/xlflut.h"
 
 void
 xlMetHeadImport(const XLpath filepath)
@@ -20,6 +21,11 @@ xlMetHeadImport(const XLpath filepath)
 		else if(xlPathCappedEqual(mime, "application/x-font", 18))
 		{
 			xlMetaHeaderSet(metaheader, XL_FONT_METAHEADER_MAGIC, filepath);
+			xlMetHeadLog();
+		}
+		else if(xlPathCappedEqual(mime, "sound", 5) || xlPathCappedEqual(mime, "application/ogg", 15))
+		{
+			xlMetaHeaderSet(metaheader, XL_SOUND_METAHEADER_MAGIC, filepath);
 			xlMetHeadLog();
 		}
 		else
@@ -203,8 +209,55 @@ xlImgImport(const XLpath filepath)
 void
 xlSndImport(const XLpath filepath)
 {
-	xlLog(L"No library handler for supporting %s, consider suggesting one\n", filepath);
-	xlSetError(XL_ERROR_VALUE_INVALID_OP);
+	XLsound *sound = xlGetSound();
+	XLmetaheader *metaheader = &sound->header.metaheader;
+	XLmetadata *metadata = &sound->header.metadata;
+	XLpath filename;
+	FStream stream;
+
+	xlMemoryZero(sound, sizeof(XLsound));
+
+	fStreamLoadDefault(&stream, filepath);
+
+	xlMetaHeaderSet(metaheader, XL_SOUND_METAHEADER_MAGIC, filepath);
+	xlStringCopy(metadata->type, L"sound");
+	xlPathFileName(filename, filepath);
+	xlStringPrintFormatted(metadata->name, XL_STRING_SIZE, L"%s", filename);
+	/*
+	xlMagickWandReadProperty(metadata->name, "name", mw);
+	xlMagickWandReadProperty(metadata->version, "version", mw);
+	xlMagickWandReadProperty(metadata->author, "author", mw);
+	xlMagickWandReadDate(metadata->date, "date:modify", mw);
+	xlMagickWandReadProperty(metadata->date, "date", mw);
+	xlMagickWandReadDate(metadata->copyright, "date:create", mw);
+	xlMagickWandReadProperty(metadata->copyright, "date", mw);
+	xlMagickWandReadProperty(metadata->copyright, "copyright", mw);
+	xlMagickWandReadProperty(metadata->license, "license", mw);
+	xlMagickWandReadProperty(metadata->url, "url", mw);
+	xlMagickWandReadProperty(metadata->email, "email", mw);
+	xlMagickWandReadProperty(metadata->tool, "tool", mw);
+	xlMagickWandReadProperty(metadata->comment, "comment", mw);
+	*/
+	xlStringCopy(metadata->xl, xlGetString(XL_VERSION));
+	/*
+	xlMagickWandReadProperty(metadata->xl, "xl", mw);
+	*/
+
+	xlLogMeta(metaheader, metadata);
+
+	sound->header.channels = fStreamChannels(&stream);
+	xlLog(L"%s: channels: %i\n", filepath, sound->header.channels);
+	sound->header.frequency = fStreamFrequency(&stream);
+	xlLog(L"%s: frequency: %i\n", filepath, sound->header.frequency);
+	sound->header.length = fStreamSize(&stream) / fStreamSampleSize(&stream) / fStreamChannels(&stream);
+	xlLog(L"%s: length: %i\n", filepath, sound->header.length);
+	sound->header.bps = fStreamSampleSize(&stream);
+	xlLog(L"%s: bps: %i\n", filepath, sound->header.bps);
+
+	sound->body.samples = xlMemoryAlloc(sound->header.length * sound->header.bps * sound->header.channels);
+	fStreamReadData(&stream, sound->body.samples);
+
+	fStreamUnload(&stream);
 }
 
 void

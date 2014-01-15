@@ -187,6 +187,21 @@ xlFilePrintAttributeColor(XLfile *stream, XLwchar *name, XLcolor *attribute)
 }
 
 void
+xlFileGetAttributeSample(XLwchar *name, XLsample *attribute, XLfile *stream)
+{
+	XLstringbuffer buffer;
+
+	xlFileGetString(buffer, XL_STRING_BUFFER_SIZE, stream);
+	xlStringScanFormatted(buffer + xlStringLength(name) + 1, L"%i", &attribute);
+}
+
+void
+xlFilePrintAttributeSample(XLfile *stream, XLwchar *name, XLsample *attribute)
+{
+	xlFilePrintStringFormatted(stream, L"%ls %f\n", name, attribute);
+}
+
+void
 xlFileGetAttributePoint(XLwchar *name, XLpoint *attribute, XLfile *stream)
 {
 	XLstringbuffer buffer;

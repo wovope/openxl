@@ -169,7 +169,7 @@ xlSndCompile(const XLpath filepath)
 		XLsound *bind = xlGetSound();
 		XLmetaheader *metaheader = &bind->header.metaheader;
 		XLmetadata *metadata = &bind->header.metadata;
-		XLvoid *samples;
+		XLsample *samples;
 		XLuint i;
 
 		xlFileGetMetaHeader(metaheader, stream);
@@ -177,6 +177,8 @@ xlSndCompile(const XLpath filepath)
 		xlFileGetMetaData(metadata, stream);
 		xlLogMeta(metaheader, metadata);
 
+		xlFileGetAttributeu(L"channels", &bind->header.channels, stream);
+		xlLog(L"%s: channels: %i\n", filepath, bind->header.channels);
 		xlFileGetAttributeu(L"frequency", &bind->header.frequency, stream);
 		xlLog(L"%s: frequency: %i\n", filepath, bind->header.frequency);
 		xlFileGetAttributeu(L"length", &bind->header.length, stream);
@@ -187,7 +189,7 @@ xlSndCompile(const XLpath filepath)
 		bind->body.samples = xlAlloc(bind->header.length * bind->header.bps);
 		samples = bind->body.samples;
 		for(i = 0; i < bind->header.length; i++)
-			xlFileGetAttributeu(L"sample", & ((XLuint*) samples)[i], stream);
+			xlFileGetAttributeSample(L"sample", &samples[i], stream);
 
 		xlFileClose(stream);
 	}

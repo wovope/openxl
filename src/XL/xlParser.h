@@ -67,6 +67,12 @@ void
 xlFilePrintAttributeColor(XLfile *stream, XLwchar *name, XLcolor *attribute);
 
 void
+xlFileGetAttributeSample(XLwchar *name, XLsample *attribute, XLfile *stream);
+
+void
+xlFilePrintAttributeSample(XLfile *stream, XLwchar *name, XLsample *attribute);
+
+void
 xlFileGetAttributePoint(XLwchar *name, XLpoint *attribute, XLfile *stream);
 
 void

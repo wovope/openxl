@@ -124,18 +124,19 @@ xlSndDecompile(const XLpath filepath)
 	if(stream)
 	{
 		XLsound *bind = xlGetSound();
-		XLvoid *samples = bind->body.samples;
+		XLsample *samples = bind->body.samples;
 		XLuint i;
 
 		xlFilePrintMetaHeader(stream, &bind->header.metaheader);
 		xlFilePrintMetaData(stream, &bind->header.metadata);
 
+		xlFilePrintAttributeu(stream, L"channels", bind->header.channels);
 		xlFilePrintAttributeu(stream, L"frequency", bind->header.frequency);
 		xlFilePrintAttributeu(stream, L"length", bind->header.length);
 		xlFilePrintAttributeu(stream, L"bps", bind->header.bps);
 
 		for(i = 0; i < bind->header.length; i++)
-			xlFilePrintAttributeu(stream, L"sample", ((XLuint *)samples)[i]);
+			xlFilePrintAttributeSample(stream, L"sample", &samples[i]);
 
 		xlFileClose(stream);
 	}

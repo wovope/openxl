@@ -295,6 +295,7 @@ enum _XLenum
 	XL_SOUND_METADATA_TOOL,
 	XL_SOUND_METADATA_COMMENT,
 	XL_SOUND_METADATA_XL,
+	XL_SOUND_CHANNELS,
 	XL_SOUND_FREQUENCY,
 	XL_SOUND_LENGTH,
 	XL_SOUND_BYTES_PER_SAMPLE,
@@ -731,6 +732,7 @@ struct _XLSoundHeader
 {
 	XLmetaheader metaheader;
 	XLmetadata metadata;
+	XLuint channels;
 	XLuint frequency;
 	XLuint length;
 	XLuint bps;
@@ -738,7 +740,7 @@ struct _XLSoundHeader
 
 struct _XLSoundBody
 {
-	XLvoid *samples;
+	XLsample *samples;
 };
 
 struct _XLSoundRuntime

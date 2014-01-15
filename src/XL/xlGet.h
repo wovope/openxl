@@ -110,7 +110,7 @@ xlIdForEach(_xlGetIdentifier)
 XLcolor *
 xlGetImgPixels(void);
 
-XLvoid *
+XLsample *
 xlGetSndSamples(void);
 
 #endif

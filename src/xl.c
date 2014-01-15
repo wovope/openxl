@@ -79,6 +79,7 @@ xlInit()
 	MagickWandGenesis();
 	xlGenStores(1, &xlImages);
 
+	av_init();
 	xlGenStores(1, &xlSounds);
 
 	FT_Init_FreeType(&xlFontLibrary);

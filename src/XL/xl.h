@@ -66,6 +66,7 @@ XL_BEGIN_DECLS
 #include <XL/xlDraw.h>
 
 #include <XL/xlImage.h>
+#include <XL/xlSound.h>
 #include <XL/xlFont.h>
 #include <XL/xlMaterial.h>
 #include <XL/xlSurface.h>

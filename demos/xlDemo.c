@@ -26,7 +26,7 @@
 #include <config.h>
 
 XLid xlDemoWindow, xlDemoViewport, xlDemoOperator, xlDemoLogoCamera;
-XLid xlDemoFont;
+XLid xlDemoFont, xlDemoSound;
 XLid xlStringList;
 XLreal xlDemoTicks = XL_REAL(0.015);
 XLuint xlDemoFrames;
@@ -284,6 +284,13 @@ xlDemoLoad(int *argc, char **argv)
 	xlDataLoad(xlDemoOperatorPath);
 	xlOpGenCamera("data/cameras");
 
+	xlGenSounds(1, &xlDemoSound);
+	xlBindSound(xlDemoSound);
+	xlDataLoad("data/sounds/abe-intro.ogg");
+	xlSndGenBuffer();
+	xlSndGenSource();
+	xlSndPlay();
+
 	demoLoad(argc, argv);
 
 	glutDisplayFunc(xlDemoDisplay);
@@ -297,6 +304,11 @@ void
 xlDemoUnload()
 {
 	demoUnload();
+
+	xlSndDeleteBuffer();
+	xlSndDeleteSource();
+	xlSndUnload();
+	xlDeleteSounds(1, &xlDemoSound);
 
 	xlOpDeleteCamera();
 	xlOpUnload();

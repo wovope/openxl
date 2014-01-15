@@ -114,6 +114,7 @@ xlSndLoad(const XLpath filepath)
 		xlPathCopy(metaheader->path, filepath);
 		xlLogMeta(metaheader, metadata);
 
+		xlLog(L"%s: channels: %i\n", filepath, bind->header.channels);
 		xlLog(L"%s: frequency: %i\n", filepath, bind->header.frequency);
 		xlLog(L"%s: length: %i\n", filepath, bind->header.length);
 		xlLog(L"%s: bps: %i\n", filepath, bind->header.bps);
