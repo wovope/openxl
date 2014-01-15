@@ -16,6 +16,9 @@ void
 xlImgLoad(const XLpath filepath);
 
 void
+xlSndLoad(const XLpath filepath);
+
+void
 xlFntLoad(const XLpath filepath);
 
 void

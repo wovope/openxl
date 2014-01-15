@@ -110,6 +110,42 @@ xlGetIntegerv(XLenum pname, XLint *params)
 			*params = bind->runtime.texture;
 			break;
 		}
+		case XL_SOUND:
+		{
+			XLstore *sounds = xlGetStore(XL_SOUND);
+			*params = sounds->bind;
+			break;
+		}
+		case XL_SOUND_FREQUENCY:
+		{
+			XLsound *bind = xlGetSound();
+			*params = bind->header.frequency;
+			break;
+		}
+		case XL_SOUND_LENGTH:
+		{
+			XLsound *bind = xlGetSound();
+			*params = bind->header.length;
+			break;
+		}
+		case XL_SOUND_BYTES_PER_SAMPLE:
+		{
+			XLsound *bind = xlGetSound();
+			*params = bind->header.bps;
+			break;
+		}
+		case XL_SOUND_BUFFER:
+		{
+			XLsound *bind = xlGetSound();
+			*params = bind->runtime.buffer;
+			break;
+		}
+		case XL_SOUND_SOURCE:
+		{
+			XLsound *bind = xlGetSound();
+			*params = bind->runtime.source;
+			break;
+		}
 		case XL_FONT:
 		{
 			XLstore *fonts = xlGetStore(XL_FONT);
@@ -653,6 +689,11 @@ xlGetStringv(XLenum name, XLstring *params)
 			xlStringCopy(*params, L"image");
 			break;
 		}
+		case XL_SOUND_METAHEADER_MAGIC:
+		{
+			xlStringCopy(*params, L"sound");
+			break;
+		}
 		case XL_FONT_METAHEADER_MAGIC:
 		{
 			xlStringCopy(*params, L"font");
@@ -922,6 +963,11 @@ xlGetString(XLenum name)
 			return L"image";
 			break;
 		}
+		case XL_SOUND_METAHEADER_MAGIC:
+		{
+			return L"sound";
+			break;
+		}
 		case XL_FONT_METAHEADER_MAGIC:
 		{
 			return L"font";
@@ -1130,6 +1176,12 @@ xlGetPathv(XLenum name, XLpath *params)
 			xlPathCopy(*params, bind->header.metaheader.path);
 			break;
 		}
+		case XL_SOUND_METAHEADER_PATH:
+		{
+			XLsound *bind = xlGetSound();
+			xlPathCopy(*params, bind->header.metaheader.path);
+			break;
+		}
 		case XL_FONT_METAHEADER_PATH:
 		{
 			XLfont *bind = xlGetFont();
@@ -1241,6 +1293,12 @@ xlGetPath(XLenum name)
 		case XL_IMAGE_METAHEADER_PATH:
 		{
 			XLimage *bind = xlGetImage();
+			return bind->header.metaheader.path;
+			break;
+		}
+		case XL_SOUND_METAHEADER_PATH:
+		{
+			XLsound *bind = xlGetSound();
 			return bind->header.metaheader.path;
 			break;
 		}
@@ -1791,6 +1849,8 @@ xlGetMagic(XLstring type)
 
 	if(xlStringEqual(type, L"image"))
 		magic = XL_IMAGE_METAHEADER_MAGIC;
+	else if(xlStringEqual(type, L"sound"))
+		magic = XL_SOUND_METAHEADER_MAGIC;
 	else if(xlStringEqual(type, L"font"))
 		magic = XL_FONT_METAHEADER_MAGIC;
 	else if(xlStringEqual(type, L"material"))
@@ -1820,6 +1880,13 @@ xlGetMagic(XLstring type)
 	return magic;
 }
 
+#define _xlGetIdStore(Id, identifier, Identifier, Identifiers, IDENTIFIER) \
+	case XL_ ## IDENTIFIER: \
+	{ \
+		return xlStores.data[xl ## Identifiers]; \
+		break; \
+	}
+		
 XLstore *
 xlGetStore(XLenum pname)
 {
@@ -1835,9 +1902,18 @@ xlGetStore(XLenum pname)
 			return xlStores.data[xlMetaDatas];
 			break;
 		}
+
+		xlIdForEach(_xlGetIdStore)
+
+		/*
 		case XL_IMAGE:
 		{
 			return xlStores.data[xlImages];
+			break;
+		}
+		case XL_SOUND:
+		{
+			return xlStores.data[xlSounds];
 			break;
 		}
 		case XL_FONT:
@@ -1890,12 +1966,15 @@ xlGetStore(XLenum pname)
 			return xlStores.data[xlWindows];
 			break;
 		}
+		*/
 		default:
 			xlSetError(XL_ERROR_VALUE_INVALID_ENUM);
 			return NULL;
 			break;
 	}
 }
+
+#undef _xlGetIdStore
 
 XLmetaheader *
 xlGetMetaHeader(void)
@@ -1930,5 +2009,14 @@ xlGetImgPixels(void)
 	XLimage *bind = images->data[images->bind];
 
 	return bind->body.pixels;
+}
+
+XLvoid *
+xlGetSndSamples(void)
+{
+	XLstore *sounds = xlStores.data[xlSounds];
+	XLsound *bind = sounds->data[sounds->bind];
+
+	return bind->body.samples;
 }
 

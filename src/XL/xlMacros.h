@@ -993,6 +993,7 @@
 #define xlMultMatrix(m) glMultMatrixf(XL_MATRIX_ARRAY(m))
 
 #define xlImgS(t) sizeof(XLImage ## t)
+#define xlSndS(t) sizeof(XLSound ## t)
 #define xlFntS(t) sizeof(XLFont ## t)
 #define xlMatS(t) sizeof(XLMaterial ## t)
 #define xlSurfS(t) sizeof(XLSurface ## t)
@@ -1006,6 +1007,7 @@
 
 #define xlIdForEach(f) \
 	f(Img, image, Image, Images, IMAGE) \
+	f(Snd, sound, Sound, Sounds, SOUND) \
 	f(Fnt, font, Font, Fonts, FONT) \
 	f(Mat, material, Material, Materials, MATERIAL) \
 	f(Surf, surface, Surface, Surfaces, SURFACE) \
@@ -1115,6 +1117,15 @@
 	xlGetPath(XL_IMAGE_METAHEADER_PATH), xlGetInteger(XL_IMAGE_WIDTH), \
 	xlGetPath(XL_IMAGE_METAHEADER_PATH), xlGetInteger(XL_IMAGE_HEIGHT), \
 	xlGetPath(XL_IMAGE_METAHEADER_PATH), xlGetInteger(XL_IMAGE_BYTES_PER_PIXEL)
+
+#define XL_SOUND_FORMAT \
+	XL_PATH_FORMAT L": frequency: " XL_INTEGER_FORMAT L"\n" \
+	XL_PATH_FORMAT L": length: " XL_INTEGER_FORMAT L"\n" \
+	XL_PATH_FORMAT L": bps: " XL_INTEGER_FORMAT L"\n"
+#define XL_SOUND_PARAMS \
+	xlGetPath(XL_SOUND_METAHEADER_PATH), xlGetInteger(XL_SOUND_FREQUENCY), \
+	xlGetPath(XL_SOUND_METAHEADER_PATH), xlGetInteger(XL_SOUND_LENGTH), \
+	xlGetPath(XL_SOUND_METAHEADER_PATH), xlGetInteger(XL_SOUND_BYTES_PER_SAMPLE)
 
 #define XL_FONT_FORMAT \
 	XL_PATH_FORMAT L": properties: " XL_INTEGER_FORMAT L"\n" \

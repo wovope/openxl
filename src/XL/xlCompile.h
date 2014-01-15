@@ -16,6 +16,9 @@ void
 xlImgCompile(const XLpath filepath);
 
 void
+xlSndCompile(const XLpath filepath);
+
+void
 xlFntCompile(const XLpath filepath);
 
 void

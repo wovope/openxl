@@ -13,6 +13,9 @@ void
 xlImgDecompile(const XLpath filepath);
 
 void
+xlSndDecompile(const XLpath filepath);
+
+void
 xlFntDecompile(const XLpath filepath);
 
 void

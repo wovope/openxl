@@ -19,6 +19,9 @@
 
 #define XLint int
 #define XLuint unsigned XLint
+#define XLuint8 uint8_t
+#define XLuint16 uint16_t
+#define XLuint32 uint32_t
 #define XLint64 int64_t
 #define XLlong long XLint
 #define XLulong unsigned XLlong
@@ -89,6 +92,10 @@ typedef struct _XLImageHeader XLImageHeader;
 typedef struct _XLImageBody XLImageBody;
 typedef struct _XLImageRuntime XLImageRuntime;
 typedef struct _XLimage XLimage;
+typedef struct _XLSoundHeader XLSoundHeader;
+typedef struct _XLSoundBody XLSoundBody;
+typedef struct _XLSoundRuntime XLSoundRuntime;
+typedef struct _XLsound XLsound;
 typedef struct _XLFontHeader XLFontHeader;
 typedef struct _XLFontProperty XLFontProperty;
 typedef struct _XLFontBody XLFontBody;
@@ -272,6 +279,28 @@ enum _XLenum
 	XL_IMAGE_BYTES_PER_PIXEL,
 	XL_IMAGE_PIXELS,
 	XL_IMAGE_TEXTURE,
+
+	XL_SOUND,
+	XL_SOUND_METAHEADER_PATH,
+	XL_SOUND_METAHEADER_MAGIC,
+	XL_SOUND_METAHEADER_TYPE,
+	XL_SOUND_METADATA_NAME,
+	XL_SOUND_METADATA_VERSION,
+	XL_SOUND_METADATA_AUTHOR,
+	XL_SOUND_METADATA_DATE,
+	XL_SOUND_METADATA_COPYRIGHT,
+	XL_SOUND_METADATA_LICENSE,
+	XL_SOUND_METADATA_URL,
+	XL_SOUND_METADATA_EMAIL,
+	XL_SOUND_METADATA_TOOL,
+	XL_SOUND_METADATA_COMMENT,
+	XL_SOUND_METADATA_XL,
+	XL_SOUND_FREQUENCY,
+	XL_SOUND_LENGTH,
+	XL_SOUND_BYTES_PER_SAMPLE,
+	XL_SOUND_SAMPLES,
+	XL_SOUND_BUFFER,
+	XL_SOUND_SOURCE,
 
 	XL_RENDER_TEXTURE,
 	XL_RENDER_POINTS,
@@ -696,6 +725,33 @@ struct _XLimage
 	XLImageHeader header;
 	XLImageBody body;
 	XLImageRuntime runtime;
+};
+
+struct _XLSoundHeader
+{
+	XLmetaheader metaheader;
+	XLmetadata metadata;
+	XLuint frequency;
+	XLuint length;
+	XLuint bps;
+};
+
+struct _XLSoundBody
+{
+	XLvoid *samples;
+};
+
+struct _XLSoundRuntime
+{
+	ALuint buffer;
+	ALuint source;
+};
+
+struct _XLsound
+{
+	XLSoundHeader header;
+	XLSoundBody body;
+	XLSoundRuntime runtime;
 };
 
 struct _XLFontHeader
@@ -1210,6 +1266,7 @@ extern XLid
 	xlMetaHeaders,
 	xlMetaDatas,
 	xlImages,
+	xlSounds,
 	xlFonts,
 	xlMaterials,
 	xlSurfaces,

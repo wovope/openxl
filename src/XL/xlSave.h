@@ -7,6 +7,9 @@ void
 xlImgSave(const XLpath filepath);
 
 void
+xlSndSave(const XLpath filepath);
+
+void
 xlFntSave(const XLpath filepath);
 
 void

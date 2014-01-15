@@ -116,6 +116,34 @@ xlImgDecompile(const XLpath filepath)
 }
 
 void
+xlSndDecompile(const XLpath filepath)
+{
+	XLfile *stream;
+
+	stream = xlFileOpen(filepath, "w");
+	if(stream)
+	{
+		XLsound *bind = xlGetSound();
+		XLvoid *samples = bind->body.samples;
+		XLuint i;
+
+		xlFilePrintMetaHeader(stream, &bind->header.metaheader);
+		xlFilePrintMetaData(stream, &bind->header.metadata);
+
+		xlFilePrintAttributeu(stream, L"frequency", bind->header.frequency);
+		xlFilePrintAttributeu(stream, L"length", bind->header.length);
+		xlFilePrintAttributeu(stream, L"bps", bind->header.bps);
+
+		for(i = 0; i < bind->header.length; i++)
+			xlFilePrintAttributeu(stream, L"sample", ((XLuint *)samples)[i]);
+
+		xlFileClose(stream);
+	}
+	else
+		xlSetError(XL_ERROR_VALUE_INVALID_PATH);
+}
+
+void
 xlFntDecompile(const XLpath filepath)
 {
 	XLfile *stream;

@@ -16,6 +16,9 @@ void
 xlImgUnload(void);
 
 void
+xlSndUnload(void);
+
+void
 xlFntUnload(void);
 
 void

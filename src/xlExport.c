@@ -52,6 +52,13 @@ xlImgExport(const XLpath filepath)
 }
 
 void
+xlSndExport(const XLpath filepath)
+{
+	xlLog(L"No library handler for supporting %s, consider suggesting one\n", filepath);
+	xlSetError(XL_ERROR_VALUE_INVALID_OP);
+}
+
+void
 xlFntExport(const XLpath filepath)
 {
 	xlLog(L"No library handler for supporting %s, consider suggesting one\n", filepath);

@@ -16,6 +16,9 @@ void
 xlImgImport(const XLpath filepath);
 
 void
+xlSndImport(const XLpath filepath);
+
+void
 xlFntImport(const XLpath filepath);
 
 void

@@ -201,6 +201,13 @@ xlImgImport(const XLpath filepath)
 }
 
 void
+xlSndImport(const XLpath filepath)
+{
+	xlLog(L"No library handler for supporting %s, consider suggesting one\n", filepath);
+	xlSetError(XL_ERROR_VALUE_INVALID_OP);
+}
+
+void
 xlFntImport(const XLpath filepath)
 {
 	xlLog(L"No library handler for supporting %s, consider suggesting one\n", filepath);

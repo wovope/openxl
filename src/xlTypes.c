@@ -40,6 +40,7 @@ XLid
 	xlMetaHeaders,
 	xlMetaDatas,
 	xlImages,
+	xlSounds,
 	xlFonts,
 	xlMaterials,
 	xlSurfaces,

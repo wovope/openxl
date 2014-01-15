@@ -79,6 +79,8 @@ xlInit()
 	MagickWandGenesis();
 	xlGenStores(1, &xlImages);
 
+	xlGenStores(1, &xlSounds);
+
 	FT_Init_FreeType(&xlFontLibrary);
 	xlGenStores(1, &xlFonts);
 
@@ -100,8 +102,8 @@ xlInit()
 void
 xlFini()
 {
-	xlDeleteStores(1, &xlViewports);
 	xlDeleteStores(1, &xlWindows);
+	xlDeleteStores(1, &xlViewports);
 
 	xlDeleteStores(1, &xlOperators);
 	xlDeleteStores(1, &xlCameras);
@@ -116,6 +118,8 @@ xlFini()
 
 	xlDeleteStores(1, &xlFonts);
 	FT_Done_FreeType(xlFontLibrary);
+
+	xlDeleteStores(1, &xlSounds);
 
 	xlDeleteStores(1, &xlImages);
 	MagickWandTerminus();

@@ -97,6 +97,36 @@ xlImgLoad(const XLpath filepath)
 }
 
 void
+xlSndLoad(const XLpath filepath)
+{
+	XLfile *stream;
+
+	stream = xlFileOpen(filepath, "rb");
+
+	if(stream)
+	{
+		XLsound *bind = xlGetSound();
+		XLmetaheader *metaheader = &bind->header.metaheader;
+		XLmetadata *metadata = &bind->header.metadata;
+
+		xlFileRead(&bind->header, 1, xlImgS(Header), stream);
+
+		xlPathCopy(metaheader->path, filepath);
+		xlLogMeta(metaheader, metadata);
+
+		xlLog(L"%s: frequency: %i\n", filepath, bind->header.frequency);
+		xlLog(L"%s: length: %i\n", filepath, bind->header.length);
+		xlLog(L"%s: bps: %i\n", filepath, bind->header.bps);
+		bind->body.samples = xlAlloc(bind->header.length  * bind->header.bps);
+		xlFileRead(bind->body.samples, bind->header.bps, bind->header.length, stream);
+
+		xlFileClose(stream);
+	}
+	else
+		xlSetError(XL_ERROR_VALUE_INVALID_PATH);
+}
+
+void
 xlFntLoad(const XLpath filepath)
 {
 	XLfile *stream;

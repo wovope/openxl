@@ -22,6 +22,26 @@ xlImgSave(const XLpath filepath)
 }
 
 void
+xlSndSave(const XLpath filepath)
+{
+	XLfile *stream;
+
+	stream = xlFileOpen(filepath, "wb");
+	if(stream)
+	{
+		XLsound *bind = xlGetSound();
+
+		xlFileWrite(&bind->header, 1, xlSndS(Header), stream);
+
+		xlFileWrite(bind->body.samples, bind->header.bps, bind->header.length, stream);
+
+		xlFileClose(stream);
+	}
+	else
+		xlSetError(XL_ERROR_VALUE_INVALID_PATH);
+}
+
+void
 xlFntSave(const XLpath filepath)
 {
 	XLfile *stream;

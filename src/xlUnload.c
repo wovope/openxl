@@ -27,6 +27,16 @@ xlImgUnload(void)
 }
 
 void
+xlSndUnload(void)
+{
+	XLsound *bind = xlGetSound();
+
+	xlFree(bind->body.samples);
+
+	xlMemoryZero(bind, sizeof(XLsound));
+}
+
+void
 xlFntUnload(void)
 {
 	XLfont *bind = xlGetFont();

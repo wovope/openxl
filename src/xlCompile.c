@@ -159,6 +159,43 @@ xlImgCompile(const XLpath filepath)
 }
 
 void
+xlSndCompile(const XLpath filepath)
+{
+	XLfile *stream;
+
+	stream = xlFileOpen(filepath, "r");
+	if(stream)
+	{
+		XLsound *bind = xlGetSound();
+		XLmetaheader *metaheader = &bind->header.metaheader;
+		XLmetadata *metadata = &bind->header.metadata;
+		XLvoid *samples;
+		XLuint i;
+
+		xlFileGetMetaHeader(metaheader, stream);
+		xlPathCopy(metaheader->path, filepath);
+		xlFileGetMetaData(metadata, stream);
+		xlLogMeta(metaheader, metadata);
+
+		xlFileGetAttributeu(L"frequency", &bind->header.frequency, stream);
+		xlLog(L"%s: frequency: %i\n", filepath, bind->header.frequency);
+		xlFileGetAttributeu(L"length", &bind->header.length, stream);
+		xlLog(L"%s: length: %i\n", filepath, bind->header.length);
+		xlFileGetAttributeu(L"bps", &bind->header.bps, stream);
+		xlLog(L"%s: bps: %i\n", filepath, bind->header.bps);
+
+		bind->body.samples = xlAlloc(bind->header.length * bind->header.bps);
+		samples = bind->body.samples;
+		for(i = 0; i < bind->header.length; i++)
+			xlFileGetAttributeu(L"sample", & ((XLuint*) samples)[i], stream);
+
+		xlFileClose(stream);
+	}
+	else
+		xlSetError(XL_ERROR_VALUE_INVALID_PATH);
+}
+
+void
 xlFntCompile(const XLpath filepath)
 {
 	XLfile *stream;

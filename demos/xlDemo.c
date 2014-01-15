@@ -171,6 +171,7 @@ xlDemoLoad(int *argc, char **argv)
 
 	xlLogBanner();
 
+	alutInit(argc, argv);
 	glutInit(argc, argv);
 
 	xlGenWindows(1, &xlDemoWindow);
@@ -316,6 +317,8 @@ xlDemoUnload()
 	xlDeleteWindows(1, &xlDemoWindow);
 
 	xlDatasRemove();
+
+	alutExit();
 }
 
 

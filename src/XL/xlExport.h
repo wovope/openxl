@@ -16,6 +16,9 @@ void
 xlImgExport(const XLpath filepath);
 
 void
+xlSndExport(const XLpath filepath);
+
+void
 xlFntExport(const XLpath filepath);
 
 void

@@ -111,6 +111,42 @@ xlSetIntegerv(XLenum pname, XLint *params)
 			bind->runtime.texture = *params;
 			break;
 		}
+		case XL_SOUND:
+		{
+			XLstore *sounds = xlGetStore(XL_SOUND);
+			sounds->bind = *params;
+			break;
+		}
+		case XL_SOUND_FREQUENCY:
+		{
+			XLsound *bind = xlGetSound();
+			bind->header.frequency = *params;
+			break;
+		}
+		case XL_SOUND_LENGTH:
+		{
+			XLsound *bind = xlGetSound();
+			bind->header.length = *params;
+			break;
+		}
+		case XL_SOUND_BYTES_PER_SAMPLE:
+		{
+			XLsound *bind = xlGetSound();
+			bind->header.bps = *params;
+			break;
+		}
+		case XL_SOUND_BUFFER:
+		{
+			XLsound *bind = xlGetSound();
+			bind->runtime.buffer = *params;
+			break;
+		}
+		case XL_SOUND_SOURCE:
+		{
+			XLsound *bind = xlGetSound();
+			bind->runtime.source = *params;
+			break;
+		}
 		case XL_FONT:
 		{
 			XLstore *fonts = xlGetStore(XL_FONT);
@@ -765,6 +801,12 @@ xlSetPathv(XLenum name, XLpath *params)
 		case XL_IMAGE_METAHEADER_PATH:
 		{
 			XLimage *bind = xlGetImage();
+			xlPathCopy(bind->header.metaheader.path, *params);
+			break;
+		}
+		case XL_SOUND_METAHEADER_PATH:
+		{
+			XLsound *bind = xlGetSound();
 			xlPathCopy(bind->header.metaheader.path, *params);
 			break;
 		}
