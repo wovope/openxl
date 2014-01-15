@@ -12,37 +12,15 @@ xlMetDatType(XLmetadata *type);
 void
 xlMetType(XLmetaheader *mhtype, XLmetadata *mdtype);
 
-void
-xlImgType(XLimage *type);
+#define _xlIdType(Id, identifier, Identifier, Identifiers, IDENTIFIER) \
+	void \
+	xl ## Id ## Type(XL ## identifier *type);
+		
+xlIdForEach(_xlIdType)
 
-void
-xlMatType(XLmaterial *type);
-
-void
-xlSurfType(XLsurface *type);
-
-void
-xlObjType(XLobject *type);
-
-void
-xlModType(XLmodel *type);
-
-void
-xlPartsType(XLparticles *type);
+#undef _xlIdType
 
 void
 xlPartsTypeParticle(XLuint particle, XLparticle *type);
-
-void
-xlCamType(XLcamera *type);
-
-void
-xlOpType(XLoperator *type);
-
-void
-xlViewType(XLviewport *type);
-
-void
-xlWinType(XLwindow *type);
 
 #endif

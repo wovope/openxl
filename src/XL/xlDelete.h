@@ -10,7 +10,7 @@ void
 xlDeleteBinds(XLsizei n, const XLid *binds);
 
 void
-xlDeleteIds(XLstore *store, XLsizei n, const XLid *ids);
+xlDeleteIdentifiers(XLstore *store, XLsizei n, const XLid *ids);
 
 void
 xlDeleteMetaHeaders(XLsizei n, const XLid *ids);
@@ -21,38 +21,13 @@ xlDeleteMetaDatas(XLsizei n, const XLid *ids);
 void
 xlDeleteMetas(XLsizei n, const XLid *mhids, const XLid *mdids);
 
-void
-xlDeleteImages(XLsizei n, const XLid *ids);
+#define _xlDeleteIdentifiers(Id, identifier, Identifier, Identifiers, IDENTIFIER) \
+	void \
+	xlDelete ## Identifiers (XLsizei n, XLid *ids);
+		
+xlIdForEach(_xlDeleteIdentifiers)
 
-void
-xlDeleteFonts(XLsizei n, const XLid *ids);
-
-void
-xlDeleteMaterials(XLsizei n, const XLid *ids);
-
-void
-xlDeleteSurfaces(XLsizei n, const XLid *ids);
-
-void
-xlDeleteObjects(XLsizei n, const XLid *ids);
-
-void
-xlDeleteModels(XLsizei n, const XLid *ids);
-
-void
-xlDeleteParticles(XLsizei n, const XLid *ids);
-
-void
-xlDeleteCameras(XLsizei n, const XLid *ids);
-
-void
-xlDeleteOperators(XLsizei n, const XLid *ids);
-
-void
-xlDeleteViewports(XLsizei n, const XLid *ids);
-
-void
-xlDeleteWindows(XLsizei n, const XLid *ids);
+#undef _xlDeleteIdentifiers
 
 void
 xlMatDeleteImages(void);

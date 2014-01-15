@@ -40,7 +40,7 @@ void
 xlOpExport(const XLpath filepath);
 
 void
-xlViewExport(const XLpath filepath);
+xlVptExport(const XLpath filepath);
 
 void
 xlWinExport(const XLpath filepath);

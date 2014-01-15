@@ -1,57 +1,14 @@
-# Configuration
-m4/
-configure
-aclocal.m4
-autom4te.cache
-depcomp
-compile
-py-compile
-config.*
-mingw32-config.cache
-stamp-*
-libtool
-ltmain.sh
-missing
-test-driver
-glib-gettextize
-glib-zip
-gtk-doc.make
-install-sh
-Makefile.in
-Makefile
-INSTALL
+# Copyright (C) 2012-2014 Juan Manuel Borges Caño <juanmabcmail@gmail.com>
 
-# Edition
-.*.swp
-.sw?
-TAGS
+NOTES
 
-# Compilation
-.deps
-*.o
-*.lo
-*.a
-*.la
-.libs
-xl.pc
-
-# Profilation
-glib-lcov.info
-glib-lcov
-*.gcno
-*.gcda
-*.gcov
-
-# Execution
-*.out
-*.exe
-*.log
-
-# Tools
-tools/xlc
-tools/xld
-tools/xlinfo
-*.xlc
+# Executables
+apps/xlTerminal/xlTerminal
+games/xlToyMachines/xlToyMachines
+games/xlSpaceWars/xlSpaceWars
+games/xlAdventure/xlAdventure
+games/xlSoccer/xlSoccer
+games/xlBasket/xlBasket
 
 # Demonstration
 demos/xlvector
@@ -81,24 +38,63 @@ demos/xlcharacters
 demos/xlport
 demos/xlcity
 
-# Apps/Games
-apps/xlTerminal/xlTerminal
-games/xlToyMachines/xlToyMachines
-games/xlSpaceWars/xlSpaceWars
-games/xlAdventure/xlAdventure
-games/xlSoccer/xlSoccer
-games/xlBasket/xlBasket
+# Tools
+tools/xlc
+tools/xld
+tools/xlinfo
+*.xlc
 
 # Distribution
 xl-*.tar.bz2
 
-#Documentation
+# Website
 openxl.wiki
 
-# Unknown
-*.stp
-*.trs
-*.sourcefiles
+
+# Autotools
+m4/
+compile
+config.*
+configure
+depcomp
+aclocal.m4
+autom4te.cache
+stamp-*
+libtool
+ltmain.sh
+mingw32-config.cache
+missing
+install-sh
+glib-gettextize
+glib-zip
+gtk-doc.make
+py-compile
+test-driver
+INSTALL
+
+# Development
+Makefile.in
+Makefile
+TAGS
+.libs
+.deps
+*.o
+*.lo
+*.a
+*.la
+xl.pc
+.*.swp
+.sw?
 *.rc
+*.gcno
+*.gcda
+*.gcov
+*.sourcefiles
+*.stp
+*.out
+*.exe
 *.def
 *.test 
+*.log
+*.trs
+

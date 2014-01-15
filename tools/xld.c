@@ -25,16 +25,16 @@
 #include <XL/xl.h>
 #include <config.h>
 
-#define _xlIdDecompile(e, ts, tp, a) \
-	case XL_ ## e ## _METAHEADER_MAGIC: \
+#define _xlIdDecompile(Id, identifier, Identifier, Identifiers, IDENTIFIER) \
+	case XL_ ## IDENTIFIER ## _METAHEADER_MAGIC: \
 	{ \
 		XLid id; \
-		xlGen ## tp(1, &id); \
-		xlBind ## ts(id); \
+		xlGen ## Identifiers(1, &id); \
+		xlBind ## Identifier(id); \
 		xlDataLoad(argv[1]); \
-		xl ## a ## Decompile(argv[2]); \
-		xl ## a ## Unload(); \
-		xlDelete ## tp(1, &id); \
+		xl ## Id ## Decompile(argv[2]); \
+		xl ## Id ## Unload(); \
+		xlDelete ## Identifiers(1, &id); \
 		break; \
 	}
 int

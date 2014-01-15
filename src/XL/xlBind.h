@@ -18,37 +18,12 @@ xlBindMetaData(XLid id);
 void
 xlBindMeta(XLid mhid, XLid mdid);
 
-void
-xlBindImage(XLid id);
+#define _xlBindIdentifier(Id, identifier, Identifier, Identifiers, IDENTIFIER) \
+	void \
+	xlBind ## Identifier(XLid id);
+		
+xlIdForEach(_xlBindIdentifier)
 
-void
-xlBindFont(XLid id);
-
-void
-xlBindMaterial(XLid id);
-
-void
-xlBindSurface(XLid id);
-
-void
-xlBindObject(XLid id);
-
-void
-xlBindModel(XLid id);
-
-void
-xlBindParticles(XLid id);
-
-void
-xlBindCamera(XLid id);
-
-void
-xlBindOperator(XLid id);
-
-void
-xlBindViewport(XLid id);
-
-void
-xlBindWindow(XLid id);
+#undef _xlBindIdentifier
 
 #endif

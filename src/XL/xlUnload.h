@@ -40,7 +40,7 @@ void
 xlOpUnload(void);
 
 void
-xlViewUnload(void);
+xlVptUnload(void);
 
 void
 xlWinUnload(void);

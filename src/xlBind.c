@@ -38,90 +38,15 @@ xlBindMeta(XLid mhid, XLid mdid)
 	xlBindMetaData(mdid);
 }
 
-void
-xlBindImage(XLid id)
-{
-	XLstore *store = xlGetStore(XL_IMAGE);
+#define _xlBindIdentifier(Id, identifier, Identifier, Identifiers, IDENTIFIER) \
+	void \
+	xlBind ## Identifier(XLid id) \
+	{ \
+		XLstore *store = xlGetStore(XL_ ## IDENTIFIER); \
+		\
+		store->bind = id; \
+	}
+		
+xlIdForEach(_xlBindIdentifier)
 
-	store->bind = id;
-}
-
-void
-xlBindFont(XLid id)
-{
-	XLstore *store = xlGetStore(XL_FONT);
-
-	store->bind = id;
-}
-
-void
-xlBindMaterial(XLid id)
-{
-	XLstore *store = xlGetStore(XL_MATERIAL);
-
-	store->bind = id;
-}
-
-void
-xlBindSurface(XLid id)
-{
-	XLstore *store = xlGetStore(XL_SURFACE);
-
-	store->bind = id;
-}
-
-void
-xlBindObject(XLid id)
-{
-	XLstore *store = xlGetStore(XL_OBJECT);
-
-	store->bind = id;
-}
-
-void
-xlBindModel(XLid id)
-{
-	XLstore *store = xlGetStore(XL_MODEL);
-
-	store->bind = id;
-}
-
-void
-xlBindParticles(XLid id)
-{
-	XLstore *store = xlGetStore(XL_PARTICLES);
-
-	store->bind = id;
-}
-
-void
-xlBindCamera(XLid id)
-{
-	XLstore *store = xlGetStore(XL_CAMERA);
-
-	store->bind = id;
-}
-
-void
-xlBindOperator(XLid id)
-{
-	XLstore *store = xlGetStore(XL_OPERATOR);
-
-	store->bind = id;
-}
-
-void
-xlBindViewport(XLid id)
-{
-	XLstore *store = xlGetStore(XL_VIEWPORT);
-
-	store->bind = id;
-}
-
-void
-xlBindWindow(XLid id)
-{
-	XLstore *store = xlGetStore(XL_WINDOW);
-
-	store->bind = id;
-}
+#undef _xlBindIdentifier

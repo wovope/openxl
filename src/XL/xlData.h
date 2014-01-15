@@ -27,13 +27,13 @@ xlDataMeta(const XLpath path);
 XLuint
 xlDataLoad(const XLpath path);
 
-#define _xlDataLoadId(e, ts, tp, a) \
+#define _xlDataLoadIdentifier(Id, identifier, Identifier, Identifiers, IDENTIFIER) \
 	void \
-	xlDataLoad ## ts(const XLpath path);
+	xlDataLoad ## Identifier(const XLpath path);
 
-xlIdForEach(_xlDataLoadId)
+xlIdForEach(_xlDataLoadIdentifier)
 
-#undef _xlDataLoadId
+#undef _xlDataLoadIdentifier
 
 void
 xlDataInit(void);

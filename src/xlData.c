@@ -35,13 +35,13 @@ xlDatasRemove(void)
 	}
 }
 
-#define _xlIdData(e, ts, tp, a) \
-	case XL_ ## e ## _METAHEADER_MAGIC: \
+#define _xlIdData(id, identifier, Identifier, Identifiers, IDENTIFIER) \
+	case XL_ ## IDENTIFIER ## _METAHEADER_MAGIC: \
 		switch(type) \
 		{ \
-			case XL_DATA_SOURCE: xl ## a ## Compile(path); break; \
-			case XL_DATA_BINARY: xl ## a ## Load(path); break; \
-			case XL_DATA_EXTERNAL: xl ## a ## Import(path); break; \
+			case XL_DATA_SOURCE: xl ## id ## Compile(path); break; \
+			case XL_DATA_BINARY: xl ## id ## Load(path); break; \
+			case XL_DATA_EXTERNAL: xl ## id ## Import(path); break; \
 			default: xlSetError(XL_ERROR_VALUE_INVALID_ENUM); break; \
 		} \
 		break;
@@ -144,24 +144,24 @@ xlDataLoad(const XLpath path)
 	return xlData(XL_DATA_LOAD, path);
 }
 
-#define _xlDataLoadId(e, ts, tp, a) \
+#define _xlDataLoadIdentifier(Id, identifier, Identifier, Identifiers, IDENTIFIER) \
 	void \
-	xlDataLoad ## ts(const XLpath path) \
+	xlDataLoad ## Identifier(const XLpath path) \
 	{ \
 		XLenum type = xlGetPathType(path); \
-	 \
+	 	\
 		switch(type) \
 		{ \
-			case XL_DATA_SOURCE: xl ## a ## Compile(path); break;  \
-			case XL_DATA_BINARY: xl ## a ## Load(path); break; \
-			case XL_DATA_EXTERNAL: xl ## a ## Import(path); break; \
+			case XL_DATA_SOURCE: xl ## Id ## Compile(path); break; \
+			case XL_DATA_BINARY: xl ## Id ## Load(path); break; \
+			case XL_DATA_EXTERNAL: xl ## Id ## Import(path); break; \
 			default: xlSetError(XL_ERROR_VALUE_INVALID_ENUM); break; \
 		} \
 	}
 
-xlIdForEach(_xlDataLoadId)
+xlIdForEach(_xlDataLoadIdentifier)
 
-#undef _xlDataLoadId
+#undef _xlDataLoadIdentifier
 
 void
 xlDataInit(void)

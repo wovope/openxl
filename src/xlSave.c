@@ -207,7 +207,7 @@ xlOpSave(const XLpath filepath)
 }
 
 void
-xlViewSave(const XLpath filepath)
+xlVptSave(const XLpath filepath)
 {
 	XLfile *stream;
 

@@ -40,7 +40,7 @@ void
 xlOpCompile(const XLpath filepath);
 
 void
-xlViewCompile(const XLpath filepath);
+xlVptCompile(const XLpath filepath);
 
 void
 xlWinCompile(const XLpath filepath);

@@ -2,7 +2,7 @@
 #include "XL/xl.h"
 
 void
-xlViewProperty(void)
+xlVptProperty(void)
 {
 	XLviewport *bind = xlGetViewport();
 	XLViewportProperty *property = &bind->body.properties[bind->runtime.property];

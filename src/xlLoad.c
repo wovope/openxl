@@ -387,7 +387,7 @@ xlOpLoad(const XLpath filepath)
 }
 
 void
-xlViewLoad(const XLpath filepath)
+xlVptLoad(const XLpath filepath)
 {
 	XLfile *stream;
 

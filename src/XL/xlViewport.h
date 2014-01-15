@@ -4,6 +4,6 @@
 #include <XL/xlTypes.h>
 
 void
-xlViewProperty(void);
+xlVptProperty(void);
 
 #endif

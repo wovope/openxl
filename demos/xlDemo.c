@@ -57,7 +57,7 @@ xlDemoReshape(int width, int height)
 {
 	XLint size[2] = { width, height };
 	xlSetIntegerv(XL_VIEWPORT_PROPERTY_SIZE, size);
-	xlViewProperty();
+	xlVptProperty();
 }
 
 static
@@ -309,7 +309,7 @@ xlDemoUnload()
 	xlFntUnload();
 	xlDeleteFonts(1, &xlDemoFont);
 
-	xlViewUnload();
+	xlVptUnload();
 	xlDeleteViewports(1, &xlDemoViewport);
 
 	xlWinUnload();

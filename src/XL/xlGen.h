@@ -21,38 +21,13 @@ xlGenMetaDatas(XLsizei n, XLid *ids);
 void
 xlGenMetas(XLsizei n, XLid *mhids, XLid *mdids);
 
-void
-xlGenImages(XLsizei n, XLid *ids);
+#define _xlGenIdentifiers(Id, identifier, Identifier, Identifiers, IDENTIFIER) \
+	void \
+	xlGen ## Identifiers (XLsizei n, XLid *ids);
+		
+xlIdForEach(_xlGenIdentifiers)
 
-void
-xlGenFonts(XLsizei n, XLid *ids);
-
-void
-xlGenMaterials(XLsizei n, XLid *ids);
-
-void
-xlGenSurfaces(XLsizei n, XLid *ids);
-
-void
-xlGenObjects(XLsizei n, XLid *ids);
-
-void
-xlGenModels(XLsizei n, XLid *ids);
-
-void
-xlGenParticles(XLsizei n, XLid *ids);
-
-void
-xlGenCameras(XLsizei n, XLid *ids);
-
-void
-xlGenOperators(XLsizei n, XLid *ids);
-
-void
-xlGenViewports(XLsizei n, XLid *ids);
-
-void
-xlGenWindows(XLsizei n, XLid *ids);
+#undef _xlGenIdentifiers
 
 void
 xlMatGenImages(const XLpath path);

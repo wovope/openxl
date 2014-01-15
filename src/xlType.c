@@ -30,59 +30,19 @@ xlMetType(XLmetaheader *mhtype, XLmetadata *mdtype)
 	xlMetLog();
 }
 
-void
-xlImgType(XLimage *type)
-{
-	XLimage *bind = xlGetImage();
+#define _xlIdType(Id, identifier, Identifier, Identifiers, IDENTIFIER) \
+	void \
+	xl ## Id ## Type(XL ## identifier *type) \
+	{ \
+		XL ## identifier *bind = xlGet ## Identifier(); \
+		\
+		xlMemoryCopy(bind, type, sizeof(XL ## identifier)); \
+		xl ## Id ## Log(); \
+	}
+		
+xlIdForEach(_xlIdType)
 
-	xlMemoryCopy(bind, type, sizeof(XLimage));
-	xlImgLog();
-}
-
-void
-xlMatType(XLmaterial *type)
-{
-	XLmaterial *bind = xlGetMaterial();
-
-	xlMemoryCopy(bind, type, sizeof(XLmaterial));
-	xlMatLog();
-}
-
-void
-xlSurfType(XLsurface *type)
-{
-	XLsurface *bind = xlGetSurface();
-
-	xlMemoryCopy(bind, type, sizeof(XLsurface));
-	xlSurfLog();
-}
-
-void
-xlObjType(XLobject *type)
-{
-	XLobject *bind = xlGetObject();
-
-	xlMemoryCopy(bind, type, sizeof(XLobject));
-	xlObjLog();
-}
-
-void
-xlModType(XLmodel *type)
-{
-	XLmodel *bind = xlGetModel();
-
-	xlMemoryCopy(bind, type, sizeof(XLmodel));
-	xlModLog();
-}
-
-void
-xlPartsType(XLparticles *type)
-{
-	XLparticles *bind = xlGetParticles();
-
-	xlMemoryCopy(bind, type, sizeof(XLparticles));
-	xlPartsLog();
-}
+#undef _xlIdType
 
 void
 xlPartsTypeParticle(XLuint particle, XLparticle *type)
@@ -92,38 +52,3 @@ xlPartsTypeParticle(XLuint particle, XLparticle *type)
 	particles->runtime.particles[particle] = *type;
 }
 
-void
-xlCamType(XLcamera *type)
-{
-	XLcamera *bind = xlGetCamera();
-
-	xlMemoryCopy(bind, type, sizeof(XLcamera));
-	xlCamLog();
-}
-
-void
-xlOpType(XLoperator *type)
-{
-	XLoperator *bind = xlGetOperator();
-
-	xlMemoryCopy(bind, type, sizeof(XLoperator));
-	xlOpLog();
-}
-
-void
-xlViewType(XLviewport *type)
-{
-	XLviewport *bind = xlGetViewport();
-
-	xlMemoryCopy(bind, type, sizeof(XLviewport));
-	xlViewLog();
-}
-
-void
-xlWinType(XLwindow *type)
-{
-	XLwindow *bind = xlGetWindow();
-
-	xlMemoryCopy(bind, type, sizeof(XLwindow));
-	xlWinLog();
-}

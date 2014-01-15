@@ -257,7 +257,7 @@ xlOpImport(const XLpath filepath)
 }
 
 void
-xlViewImport(const XLpath filepath)
+xlVptImport(const XLpath filepath)
 {
 	xlLog(L"No library handler for supporting %s, consider suggesting one\n", filepath);
 	xlSetError(XL_ERROR_VALUE_INVALID_OP);

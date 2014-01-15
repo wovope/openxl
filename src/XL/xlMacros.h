@@ -1005,17 +1005,17 @@
 #define xlWinS(t) sizeof(XLWindow ## t)
 
 #define xlIdForEach(f) \
-	f(IMAGE, Image, Images, Img) \
-	f(FONT, Font, Fonts, Fnt) \
-	f(MATERIAL, Material, Materials, Mat) \
-	f(SURFACE, Surface, Surfaces, Surf) \
-	f(OBJECT, Object, Objects, Obj) \
-	f(MODEL, Model, Models, Mod) \
-	f(PARTICLES, Particles, Particles, Parts) \
-	f(CAMERA, Camera, Cameras, Cam) \
-	f(OPERATOR, Operator, Operators, Op) \
-	f(VIEWPORT, Viewport, Viewports, View) \
-	f(WINDOW, Window, Windows, Win)
+	f(Img, image, Image, Images, IMAGE) \
+	f(Fnt, font, Font, Fonts, FONT) \
+	f(Mat, material, Material, Materials, MATERIAL) \
+	f(Surf, surface, Surface, Surfaces, SURFACE) \
+	f(Obj, object, Object, Objects, OBJECT) \
+	f(Mod, model, Model, Models, MODEL) \
+	f(Parts, particles, Particles, Particles, PARTICLES) \
+	f(Cam, camera, Camera, Cameras, CAMERA) \
+	f(Op, operator, Operator, Operators, OPERATOR) \
+	f(Vpt, viewport, Viewport, Viewports, VIEWPORT) \
+	f(Win, window, Window, Windows, WINDOW) \
 
 #define XL_BOOLEAN_FORMAT L"%ls"
 #define XL_BOOLEAN_PARAMS(b) ((b) ? L"True" : L"False")
@@ -1120,7 +1120,7 @@
 	XL_PATH_FORMAT L": properties: " XL_INTEGER_FORMAT L"\n" \
 	XL_PATH_FORMAT L": path: " XL_PATH_FORMAT L"\n"
 #define XL_FONT_PARAMS \
-	xlGetPath(XL_FONT_METAHEADER_PATH), xlGetInteger(XL_FONT_PROPERTIES) \
+	xlGetPath(XL_FONT_METAHEADER_PATH), xlGetInteger(XL_FONT_PROPERTIES), \
 	xlGetPath(XL_FONT_METAHEADER_PATH), xlGetPath(XL_FONT_PATH)
 
 #define XL_MATERIAL_FORMAT \

@@ -82,92 +82,16 @@ xlMetLog(void)
 	xlLogBind(XL_METADATA);
 }
 
-void
-xlImgLog(void)
-{
-	XLimage *bind = xlGetImage();
+#define _xlIdLog(Id, identifier, Identifier, Identifiers, IDENTIFIER) \
+	void \
+	xl ## Id ## Log (void) \
+	{ \
+		XL ## identifier *bind = xlGet ## Identifier(); \
+		\
+		xlLogMeta(&bind->header.metaheader, &bind->header.metadata); \
+		xlLogBind(XL_ ## IDENTIFIER); \
+	}
 
-	xlLogMeta(&bind->header.metaheader, &bind->header.metadata);
-	xlLogBind(XL_IMAGE);
-}
+xlIdForEach(_xlIdLog)
 
-void
-xlMatLog(void)
-{
-	XLmaterial *bind = xlGetMaterial();
-
-	xlLogMeta(&bind->header.metaheader, &bind->header.metadata);
-	xlLogBind(XL_MATERIAL);
-}
-
-void
-xlSurfLog(void)
-{
-	XLsurface *bind = xlGetSurface();
-
-	xlLogMeta(&bind->header.metaheader, &bind->header.metadata);
-	xlLogBind(XL_SURFACE);
-}
-
-void
-xlObjLog(void)
-{
-	XLobject *bind = xlGetObject();
-
-	xlLogMeta(&bind->header.metaheader, &bind->header.metadata);
-	xlLogBind(XL_OBJECT);
-}
-
-void
-xlModLog(void)
-{
-	XLmodel *bind = xlGetModel();
-
-	xlLogMeta(&bind->header.metaheader, &bind->header.metadata);
-	xlLogBind(XL_MODEL);
-}
-
-void
-xlPartsLog(void)
-{
-	XLparticles *bind = xlGetParticles();
-
-	xlLogMeta(&bind->header.metaheader, &bind->header.metadata);
-	xlLogBind(XL_PARTICLES);
-}
-
-void
-xlCamLog(void)
-{
-	XLcamera *bind = xlGetCamera();
-
-	xlLogMeta(&bind->header.metaheader, &bind->header.metadata);
-	xlLogBind(XL_CAMERA);
-}
-
-void
-xlOpLog(void)
-{
-	XLoperator *bind = xlGetOperator();
-
-	xlLogMeta(&bind->header.metaheader, &bind->header.metadata);
-	xlLogBind(XL_OPERATOR);
-}
-
-void
-xlViewLog(void)
-{
-	XLviewport *bind = xlGetViewport();
-
-	xlLogMeta(&bind->header.metaheader, &bind->header.metadata);
-	xlLogBind(XL_VIEWPORT);
-}
-
-void
-xlWinLog(void)
-{
-	XLwindow *bind = xlGetWindow();
-
-	xlLogMeta(&bind->header.metaheader, &bind->header.metadata);
-	xlLogBind(XL_WINDOW);
-}
+#undef _xlIdLog

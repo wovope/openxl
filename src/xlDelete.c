@@ -25,7 +25,7 @@ xlDeleteBinds(XLsizei n, const XLid *binds)
 }
 
 void
-xlDeleteIds(XLstore *store, XLsizei n, const XLid *ids)
+xlDeleteIdentifiers(XLstore *store, XLsizei n, const XLid *ids)
 {
 	XLsizei i;
 	for(i = 1; i < n; i++)
@@ -40,7 +40,7 @@ xlDeleteMetaHeaders(XLsizei n, const XLid *ids)
 {
 	XLstore *store = xlGetStore(XL_METAHEADER);
 
-	xlDeleteIds(store, n, ids);
+	xlDeleteIdentifiers(store, n, ids);
 }
 
 void
@@ -48,7 +48,7 @@ xlDeleteMetaDatas(XLsizei n, const XLid *ids)
 {
 	XLstore *store = xlGetStore(XL_METADATA);
 
-	xlDeleteIds(store, n, ids);
+	xlDeleteIdentifiers(store, n, ids);
 }
 
 void
@@ -58,93 +58,18 @@ xlDeleteMetas(XLsizei n, const XLid *mhids, const XLid *mdids)
 	xlDeleteMetaDatas(n, mdids);
 }
 
-void
-xlDeleteImages(XLsizei n, const XLid *ids)
-{
-	XLstore *store = xlGetStore(XL_IMAGE);
+#define _xlDeleteIdentifiers(Id, identifier, Identifier, Identifiers, IDENTIFIER) \
+	void \
+	xlDelete ## Identifiers (XLsizei n, XLid *ids) \
+	{ \
+		XLstore *store = xlGetStore(XL_ ## IDENTIFIER); \
+ 		\
+		xlDeleteIdentifiers(store, n, ids); \
+	}
+		
+xlIdForEach(_xlDeleteIdentifiers)
 
-	xlDeleteIds(store, n, ids);
-}
-
-void
-xlDeleteFonts(XLsizei n, const XLid *ids)
-{
-	XLstore *store = xlGetStore(XL_FONT);
-
-	xlDeleteIds(store, n, ids);
-}
-
-void
-xlDeleteMaterials(XLsizei n, const XLid *ids)
-{
-	XLstore *store = xlGetStore(XL_MATERIAL);
-
-	xlDeleteIds(store, n, ids);
-}
-
-void
-xlDeleteSurfaces(XLsizei n, const XLid *ids)
-{
-	XLstore *store = xlGetStore(XL_SURFACE);
-
-	xlDeleteIds(store, n, ids);
-}
-
-void
-xlDeleteObjects(XLsizei n, const XLid *ids)
-{
-	XLstore *store = xlGetStore(XL_OBJECT);
-
-	xlDeleteIds(store, n, ids);
-}
-
-void
-xlDeleteModels(XLsizei n, const XLid *ids)
-{
-	XLstore *store = xlGetStore(XL_MODEL);
-
-	xlDeleteIds(store, n, ids);
-}
-
-void
-xlDeleteParticles(XLsizei n, const XLid *ids)
-{
-	XLstore *store = xlGetStore(XL_PARTICLES);
-
-	xlDeleteIds(store, n, ids);
-}
-
-void
-xlDeleteCameras(XLsizei n, const XLid *ids)
-{
-	XLstore *store = xlGetStore(XL_CAMERA);
-
-	xlDeleteIds(store, n, ids);
-}
-
-void
-xlDeleteOperators(XLsizei n, const XLid *ids)
-{
-	XLstore *store = xlGetStore(XL_OPERATOR);
-
-	xlDeleteIds(store, n, ids);
-}
-
-void
-xlDeleteViewports(XLsizei n, const XLid *ids)
-{
-	XLstore *store = xlGetStore(XL_VIEWPORT);
-
-	xlDeleteIds(store, n, ids);
-}
-
-void
-xlDeleteWindows(XLsizei n, const XLid *ids)
-{
-	XLstore *store = xlGetStore(XL_WINDOW);
-
-	xlDeleteIds(store, n, ids);
-}
+#undef _xlDeleteIdentifiers
 
 void
 xlMatDeleteImages(void)

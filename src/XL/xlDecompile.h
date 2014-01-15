@@ -37,7 +37,7 @@ void
 xlOpDecompile(const XLpath filepath);
 
 void
-xlViewDecompile(const XLpath filepath);
+xlVptDecompile(const XLpath filepath);
 
 void
 xlWinDecompile(const XLpath filepath);

@@ -612,7 +612,7 @@ xlOpCompile(const XLpath filepath)
 }
 
 void
-xlViewCompile(const XLpath filepath)
+xlVptCompile(const XLpath filepath)
 {
 	XLfile *stream;
 

@@ -24,34 +24,12 @@ xlMetDatLog(void);
 void
 xlMetLog(void);
 
-void
-xlImgLog(void);
+#define _xlIdLog(Id, identifier, Identifier, Identifiers, IDENTIFIER) \
+	void \
+	xl ## Id ## Log (void);
+		
+xlIdForEach(_xlIdLog)
 
-void
-xlMatLog(void);
-
-void
-xlSurfLog(void);
-
-void
-xlObjLog(void);
-
-void
-xlModLog(void);
-
-void
-xlPartsLog(void);
-
-void
-xlCamLog(void);
-
-void
-xlOpLog(void);
-
-void
-xlViewLog(void);
-
-void
-xlWinLog(void);
+#undef _xlIdLog
 
 #endif

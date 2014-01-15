@@ -108,7 +108,7 @@ xlOpExport(const XLpath filepath)
 }
 
 void
-xlViewExport(const XLpath filepath)
+xlVptExport(const XLpath filepath)
 {
 	xlLog(L"No library handler for supporting %s, consider suggesting one\n", filepath);
 	xlSetError(XL_ERROR_VALUE_INVALID_OP);

@@ -31,7 +31,7 @@ void
 xlOpSave(const XLpath filepath);
 
 void
-xlViewSave(const XLpath filepath);
+xlVptSave(const XLpath filepath);
 
 void
 xlWinSave(const XLpath filepath);

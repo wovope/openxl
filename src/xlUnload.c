@@ -123,7 +123,7 @@ xlOpUnload(void)
 }
 
 void
-xlViewUnload(void)
+xlVptUnload(void)
 {
 	XLviewport *bind = xlGetViewport();
 

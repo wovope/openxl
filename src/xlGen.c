@@ -33,7 +33,7 @@ xlGenBinds(XLsizei n, XLid *binds)
 }
 
 void
-xlGenIds(XLstore *store, XLsizei size, XLsizei n, XLid *ids)
+xlGenIdentifiers(XLstore *store, XLsizei size, XLsizei n, XLid *ids)
 {
 	XLsizei i, g;
 	for(i = 1, g = 0; i < XL_STORE_SIZE && g < n; i++)
@@ -52,7 +52,7 @@ xlGenMetaHeaders(XLsizei n, XLid *ids)
 {
 	XLstore *store = xlGetStore(XL_METAHEADER);
 
-	xlGenIds(store, sizeof(XLmetaheader), n, ids);
+	xlGenIdentifiers(store, sizeof(XLmetaheader), n, ids);
 }
 
 void
@@ -60,7 +60,7 @@ xlGenMetaDatas(XLsizei n, XLid *ids)
 {
 	XLstore *store = xlGetStore(XL_METADATA);
 
-	xlGenIds(store, sizeof(XLmetadata), n, ids);
+	xlGenIdentifiers(store, sizeof(XLmetadata), n, ids);
 }
 
 void
@@ -70,93 +70,18 @@ xlGenMetas(XLsizei n, XLid *mhids, XLid *mdids)
 	xlGenMetaDatas(n, mdids);
 }
 
-void
-xlGenImages(XLsizei n, XLid *ids)
-{
-	XLstore *store = xlGetStore(XL_IMAGE);
+#define _xlGenIdentifiers(Id, identifier, Identifier, Identifiers, IDENTIFIER) \
+	void \
+	xlGen ## Identifiers (XLsizei n, XLid *ids) \
+	{ \
+		XLstore *store = xlGetStore(XL_ ## IDENTIFIER); \
+		\
+		xlGenIdentifiers(store, sizeof(XL ## identifier), n, ids); \
+	}
+		
+xlIdForEach(_xlGenIdentifiers)
 
-	xlGenIds(store, sizeof(XLimage), n, ids);
-}
-
-void
-xlGenFonts(XLsizei n, XLid *ids)
-{
-	XLstore *store = xlGetStore(XL_FONT);
-
-	xlGenIds(store, sizeof(XLfont), n, ids);
-}
-
-void
-xlGenMaterials(XLsizei n, XLid *ids)
-{
-	XLstore *store = xlGetStore(XL_MATERIAL);
-
-	xlGenIds(store, sizeof(XLmaterial), n, ids);
-}
-
-void
-xlGenSurfaces(XLsizei n, XLid *ids)
-{
-	XLstore *store = xlGetStore(XL_SURFACE);
-
-	xlGenIds(store, sizeof(XLsurface), n, ids);
-}
-
-void
-xlGenObjects(XLsizei n, XLid *ids)
-{
-	XLstore *store = xlGetStore(XL_OBJECT);
-
-	xlGenIds(store, sizeof(XLobject), n, ids);
-}
-
-void
-xlGenModels(XLsizei n, XLid *ids)
-{
-	XLstore *store = xlGetStore(XL_MODEL);
-
-	xlGenIds(store, sizeof(XLmodel), n, ids);
-}
-
-void
-xlGenParticles(XLsizei n, XLid *ids)
-{
-	XLstore *store = xlGetStore(XL_PARTICLES);
-
-	xlGenIds(store, sizeof(XLparticles), n, ids);
-}
-
-void
-xlGenCameras(XLsizei n, XLid *ids)
-{
-	XLstore *store = xlGetStore(XL_CAMERA);
-
-	xlGenIds(store, sizeof(XLcamera), n, ids);
-}
-
-void
-xlGenOperators(XLsizei n, XLid *ids)
-{
-	XLstore *store = xlGetStore(XL_OPERATOR);
-
-	xlGenIds(store, sizeof(XLoperator), n, ids);
-}
-
-void
-xlGenViewports(XLsizei n, XLid *ids)
-{
-	XLstore *store = xlGetStore(XL_VIEWPORT);
-
-	xlGenIds(store, sizeof(XLviewport), n, ids);
-}
-
-void
-xlGenWindows(XLsizei n, XLid *ids)
-{
-	XLstore *store = xlGetStore(XL_WINDOW);
-
-	xlGenIds(store, sizeof(XLwindow), n, ids);
-}
+#undef _xlGenIdentifiers
 
 void
 xlMatGenImages(const XLpath path)

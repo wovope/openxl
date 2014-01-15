@@ -486,7 +486,7 @@ xlOpDecompile(const XLpath filepath)
 }
 
 void
-xlViewDecompile(const XLpath filepath)
+xlVptDecompile(const XLpath filepath)
 {
 	XLfile *stream;
 

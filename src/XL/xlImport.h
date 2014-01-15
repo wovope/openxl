@@ -40,7 +40,7 @@ void
 xlOpImport(const XLpath filepath);
 
 void
-xlViewImport(const XLpath filepath);
+xlVptImport(const XLpath filepath);
 
 void
 xlWinImport(const XLpath filepath);

@@ -40,7 +40,7 @@ void
 xlOpLoad(const XLpath filepath);
 
 void
-xlViewLoad(const XLpath filepath);
+xlVptLoad(const XLpath filepath);
 
 void
 xlWinLoad(const XLpath filepath);
