@@ -14,7 +14,7 @@
                   * Homepage <http://code.google.com/p/openxl>
                      * Mail <mailto:juanmabcmail@gmail.com>
                    * Blog <http://juanmabcblog.blogspot.com>
-               Copyright (C) 2012 - 2013 Juan Manuel Borges Caño
+               Copyright (C) 2012 - 2014 Juan Manuel Borges Caño
 
 **  ** **     **  ** **     **  ** **    **  ** **     **  ** **     **  ** **  
  ****  **      ****  **      ****  **     ****  **      ****  **      ****  **  
