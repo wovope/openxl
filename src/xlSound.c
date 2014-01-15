@@ -161,3 +161,13 @@ xlSndPlay(void)
 
 	//alDebug(__FILE__, __LINE__);
 }
+
+void
+xlSndStop(void)
+{
+	XLsound *bind = xlGetSound();
+
+	alSourceStop(bind->runtime.source);
+
+	//alDebug(__FILE__, __LINE__);
+}

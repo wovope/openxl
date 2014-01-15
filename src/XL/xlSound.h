@@ -18,4 +18,7 @@ xlSndDeleteSource(void);
 void
 xlSndPlay(void);
 
+void
+xlSndStop(void);
+
 #endif

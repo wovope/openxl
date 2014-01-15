@@ -1,14 +1,13 @@
 #ifndef AV_H
 #define AV_H
 
+#include <XL/AL/xlalut.h>
+
 #include <libavcodec/avcodec.h>
 #include <libavformat/avformat.h>
 #include <libswscale/swscale.h>
 #include <libswresample/swresample.h>
 #include <libavutil/imgutils.h>
-#include <AL/al.h>
-#include <AL/alc.h>
-#include <AL/alext.h>
 
 typedef struct SwrContext SwrContext;
 typedef struct SwsContext SwsContext;
@@ -53,66 +52,66 @@ typedef struct
 		uint64_t pts, frms;
 		int rdy, end;
 	} audio;
-} FStream;
+} FLsound;
 
 void
-fStreamLoad(FStream *stream, int wanted, int related, const char *filepath);
+flSoundLoad(FLsound *sound, int wanted, int related, const char *filepath);
 
 void
-fStreamLoadDefault(FStream *stream, const char *filepath);
+flSoundLoadDefault(FLsound *sound, const char *filepath);
 
 void
-fStreamInform(FStream *stream, ALenum *format, ALsizei *freq);
+flSoundInform(FLsound *sound, ALenum *format, ALsizei *freq);
 
 void
-fStreamConvert(FStream *stream, ALenum format, ALsizei freq);
+flSoundConvert(FLsound *sound, ALenum format, ALsizei freq);
 
 void
-fStreamUnload(FStream *stream);
+flSoundUnload(FLsound *sound);
 
 unsigned int
-fStreamFrequency(FStream *stream);
+flSoundFrequency(FLsound *sound);
 
 unsigned int
-fStreamChannels(FStream *stream);
+flSoundChannels(FLsound *sound);
 
 unsigned int
-fStreamSize(FStream *stream);
+flSoundSize(FLsound *sound);
 
 unsigned int
-fStreamSampleSize(FStream *stream);
+flSoundSampleSize(FLsound *sound);
 
 float
-fStreamDuration(FStream *stream);
+flSoundDuration(FLsound *sound);
 
 unsigned int
-fStreamSamples(FStream *stream);
+flSoundSamples(FLsound *sound);
 
 unsigned int
-fStreamFormat(FStream *stream);
+flSoundFormat(FLsound *sound);
 
 unsigned int
-fStreamReadSamples(FStream *stream, uint8_t *buffer);
+flSoundReadSamples(FLsound *sound, uint8_t *buffer);
 
 void
-fStreamBufferData(FStream *stream, ALuint bfr);
+flSoundBufferData(FLsound *sound, ALuint bfr);
 
 void
-fStreamConvertBufferData(FStream *stream, ALuint bfr);
+flSoundConvertBufferData(FLsound *sound, ALuint bfr);
 
 unsigned int
-fStreamEnd(FStream *stream);
+flSoundEnd(FLsound *sound);
 
 unsigned int
-fStreamReadChunk(FStream *stream, unsigned int size, uint8_t *buffer);
+flSoundReadChunk(FLsound *sound, unsigned int size, uint8_t *buffer);
 
 unsigned int
-fStreamBufferChunk(FStream *stream, unsigned int size, ALuint bfr);
+flSoundBufferChunk(FLsound *sound, unsigned int size, ALuint bfr);
 
 unsigned int
-fStreamConvertBufferChunk(FStream *stream, unsigned int size, ALuint bfr);
+flSoundConvertBufferChunk(FLsound *sound, unsigned int size, ALuint bfr);
 
 int
-fStreamSeek(FStream *stream, unsigned int seek);
+flSoundSeek(FLsound *sound, unsigned int seek);
 
 #endif

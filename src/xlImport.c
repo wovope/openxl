@@ -213,11 +213,11 @@ xlSndImport(const XLpath filepath)
 	XLmetaheader *metaheader = &sound->header.metaheader;
 	XLmetadata *metadata = &sound->header.metadata;
 	XLpath filename;
-	FStream stream;
+	FLsound fl;
 
 	xlMemoryZero(sound, sizeof(XLsound));
 
-	fStreamLoadDefault(&stream, filepath);
+	flSoundLoadDefault(&fl, filepath);
 
 	xlMetaHeaderSet(metaheader, XL_SOUND_METAHEADER_MAGIC, filepath);
 	xlStringCopy(metadata->type, L"sound");
@@ -245,19 +245,19 @@ xlSndImport(const XLpath filepath)
 
 	xlLogMeta(metaheader, metadata);
 
-	sound->header.channels = fStreamChannels(&stream);
+	sound->header.channels = flSoundChannels(&fl);
 	xlLog(L"%s: channels: %i\n", filepath, sound->header.channels);
-	sound->header.frequency = fStreamFrequency(&stream);
+	sound->header.frequency = flSoundFrequency(&fl);
 	xlLog(L"%s: frequency: %i\n", filepath, sound->header.frequency);
-	sound->header.length = fStreamSize(&stream) / fStreamSampleSize(&stream) / fStreamChannels(&stream);
+	sound->header.length = flSoundSize(&fl) / flSoundSampleSize(&fl) / flSoundChannels(&fl);
 	xlLog(L"%s: length: %i\n", filepath, sound->header.length);
-	sound->header.bps = fStreamSampleSize(&stream);
+	sound->header.bps = flSoundSampleSize(&fl);
 	xlLog(L"%s: bps: %i\n", filepath, sound->header.bps);
 
 	sound->body.samples = xlMemoryAlloc(sound->header.length * sound->header.bps * sound->header.channels);
-	fStreamReadSamples(&stream, sound->body.samples);
+	flSoundReadSamples(&fl, sound->body.samples);
 
-	fStreamUnload(&stream);
+	flSoundUnload(&fl);
 }
 
 void

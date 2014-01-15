@@ -305,8 +305,9 @@ xlDemoUnload()
 {
 	demoUnload();
 
-	xlSndDeleteBuffer();
+	xlSndStop();
 	xlSndDeleteSource();
+	xlSndDeleteBuffer();
 	xlSndUnload();
 	xlDeleteSounds(1, &xlDemoSound);
 

@@ -97,7 +97,7 @@ libxl_la_SOURCES = \
 	XL/xlPort.h xlPort.c \
 	XL/xlTexturizer.h xlTexturizer.c \
 	XL/id.h XL/unid.h \
-	XL/FL/av.h FL/av.c \
+	XL/FL/flSound.h FL/flSound.c \
 	XL/FL/xlflut.h \
 	XL/GL/xlglut.h \
 	XL/AL/xlalut.h \
