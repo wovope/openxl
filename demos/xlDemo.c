@@ -287,8 +287,10 @@ xlDemoLoad(int *argc, char **argv)
 	xlGenSounds(1, &xlDemoSound);
 	xlBindSound(xlDemoSound);
 	xlSndImport("data/sounds/abe-intro.ogg");
+	//xlSndImport("data/sounds/hedgewars-beep.wav");
 	xlSndGenBuffer();
 	xlSndGenSource();
+	alSourcei(xlGetInteger(XL_SOUND_SOURCE), AL_LOOPING, AL_TRUE);
 	xlSndPlay();
 
 	demoLoad(argc, argv);
