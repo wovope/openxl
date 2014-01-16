@@ -52,14 +52,6 @@ av_pq_get(AVPacketQueue *pq, AVPacket *pkt)
 		return 0;
 }
 
-void
-av_init(void)
-{
-	avcodec_register_all();
-	av_register_all();
-	av_log_set_level(AV_LOG_QUIET);
-}
-
 int
 av_pq_bufget(FLsound *sound, AVPacketQueue *pq, AVPacket *pkt)
 {
@@ -364,7 +356,8 @@ flSoundLoad(FLsound *sound, int wanted, int related, const char *filepath)
 	avcodec_open2(sound->audio.cc, sound->audio.codec, NULL);
 	sound->audio.frm = avcodec_alloc_frame();
 	sound->audio.rc = NULL;
-	sound->audio.size = av_samples_get_buffer_size(NULL, sound->audio.cc->channels, sound->fc->streams[sound->audio.sti]->duration * av_q2d(sound->fc->streams[sound->audio.sti]->time_base) * 1000000.0, sound->audio.cc->sample_fmt, 1);
+	//sound->audio.size = av_samples_get_buffer_size(NULL, sound->audio.cc->channels, sound->fc->streams[sound->audio.sti]->duration * av_q2d(sound->fc->streams[sound->audio.sti]->time_base) * 1000000.0, sound->audio.cc->sample_fmt, 1);
+	sound->audio.size = av_samples_get_buffer_size(NULL, sound->audio.cc->channels, sound->audio.cc->sample_rate * (sound->fc->streams[sound->audio.sti]->duration * av_q2d(sound->fc->streams[sound->audio.sti]->time_base)) / sound->audio.cc->channels, sound->audio.cc->sample_fmt, 1);
 	memset(&sound->audio.pktprc, 0, sizeof(AVPacket));
 	av_pq_init(&sound->audio.pq);
 	sound->audio.cc->opaque = (void *) sound;
@@ -377,6 +370,12 @@ flSoundLoad(FLsound *sound, int wanted, int related, const char *filepath)
 
 	sound->audio.format = al_av_get_format(sound->audio.cc->sample_fmt, sound->audio.cc->channels);
 	sound->audio.freq = sound->audio.cc->sample_rate;
+
+	if(sound->audio.cc->sample_fmt != av_get_packed_sample_fmt(sound->audio.cc->sample_fmt))
+	{
+		sound->audio.rc = swr_alloc_set_opts(NULL, sound->audio.cc->channel_layout, av_get_packed_sample_fmt(sound->audio.cc->sample_fmt), sound->audio.freq, sound->audio.cc->channel_layout, sound->audio.cc->sample_fmt, sound->audio.cc->sample_rate, 0, NULL);
+		swr_init(sound->audio.rc);
+	}
 }
 
 void
@@ -445,7 +444,7 @@ flSoundDuration(FLsound *sound)
 unsigned int
 flSoundSamples(FLsound *sound)
 {
-	return ((uint64_t) (sound->audio.cc->sample_rate * (sound->fc->streams[sound->audio.sti]->duration * av_q2d(sound->fc->streams[sound->audio.sti]->time_base))));
+	return ((uint64_t) (sound->audio.cc->sample_rate * (sound->fc->streams[sound->audio.sti]->duration * av_q2d(sound->fc->streams[sound->audio.sti]->time_base))) * sound->audio.cc->channels);
 }
 
 
@@ -458,7 +457,10 @@ flSoundFormat(FLsound *sound)
 unsigned int
 flSoundReadSamples(FLsound *sound, uint8_t *buffer)
 {
-	return flSoundReadChunk(sound, sound->audio.size, buffer);
+	if(sound->audio.cc->sample_fmt != av_get_packed_sample_fmt(sound->audio.cc->sample_fmt))
+		return flSoundConvertReadChunk(sound, sound->audio.size, buffer);
+	else
+		return flSoundReadChunk(sound, sound->audio.size, buffer);
 }
 
 void
@@ -492,8 +494,8 @@ flSoundReadChunk(FLsound *sound, unsigned int size, uint8_t *buffer)
 	{
 		if(!sound->audio.pktprc.size) sound->audio.pktprc = sound->audio.pkt;
 		len = avcodec_decode_audio4(sound->audio.cc, sound->audio.frm, &sound->audio.rdy, &sound->audio.pktprc);
-		if(len > 0) { sound->audio.pktprc.data += len; sound->audio.pktprc.size -= len; }
 		if(len < 0 || !sound->audio.pktprc.size) { av_free_packet(&sound->audio.pkt); memset(&sound->audio.pktprc, 0, sizeof(AVPacket)); }
+		if(len > 0) { sound->audio.pktprc.data += len; sound->audio.pktprc.size -= len; }
 		if(sound->audio.rdy)
 		{
 			sound->audio.frms++;
@@ -504,14 +506,56 @@ flSoundReadChunk(FLsound *sound, unsigned int size, uint8_t *buffer)
 				else if(sound->audio.frm->pts != AV_NOPTS_VALUE) sound->audio.pts = sound->audio.frm->pts;
 				else sound->audio.pts = sound->audio.frms;
 			}
-			memcpy(sound->audio.buffer + sound->audio.bfrsmp * av_get_bytes_per_sample(sound->audio.cc->sample_fmt) * sound->audio.cc->channels, sound->audio.frm->data[0], sound->audio.frm->nb_samples * av_get_bytes_per_sample(sound->audio.cc->sample_fmt) * sound->audio.cc->channels);
+			//memcpy(sound->audio.buffer + sound->audio.bfrsmp * av_get_bytes_per_sample(sound->audio.cc->sample_fmt) * sound->audio.cc->channels, sound->audio.frm->data[0], sound->audio.frm->nb_samples * av_get_bytes_per_sample(sound->audio.cc->sample_fmt) * sound->audio.cc->channels);
+			//memcpy(sound->audio.buffer + sound->audio.bfrsmp * av_get_bytes_per_sample(sound->audio.cc->sample_fmt) /** sound->audio.cc->channels*/, sound->audio.frm->data[0], sound->audio.frm->nb_samples * av_get_bytes_per_sample(sound->audio.cc->sample_fmt) /** sound->audio.cc->channels*/);
+			//xlLog(L"%i %i -> %i-> %i\n", smp, sound->audio.bfrsmp, sound->audio.bfrsmp ? av_samples_get_buffer_size(NULL, sound->audio.cc->channels, sound->audio.bfrsmp, sound->audio.cc->sample_fmt, 1) : 0, av_samples_get_buffer_size(NULL, sound->audio.cc->channels, sound->audio.frm->nb_samples, sound->audio.cc->sample_fmt, 1));
+			memcpy(sound->audio.buffer + (sound->audio.bfrsmp ? av_samples_get_buffer_size(NULL, sound->audio.cc->channels, sound->audio.bfrsmp, sound->audio.cc->sample_fmt, 1) : 0), sound->audio.frm->data[0], av_samples_get_buffer_size(NULL, sound->audio.cc->channels, sound->audio.frm->nb_samples, sound->audio.cc->sample_fmt, 1));
 			sound->audio.bfrsmp += sound->audio.frm->nb_samples;
 			if(sound->audio.bfrsmp >= smp)
 				chunk = 1;
 			sound->audio.rdy = 0;
 		}
 	}
-	//alBufferData(bfr, sound->audio.format, sound->audio.buffer, sound->audio.bfrsmp * av_get_bytes_per_sample(av_alSampleFormat(sound->audio.format)) * alChannels(sound->audio.format), sound->audio.freq);
+	//av_free(sound->audio.buffer);
+	return sound->audio.bfrsmp;
+}
+
+unsigned int
+flSoundConvertReadChunk(FLsound *sound, unsigned int size, uint8_t *buffer)
+{
+	int smp, len, chunk;
+
+	chunk = 0;
+	smp = size / (av_get_bytes_per_sample(sound->audio.cc->sample_fmt) * sound->audio.cc->channels);
+	sound->audio.bfrsmp = 0;
+	sound->audio.buffer = buffer; //av_malloc((size + AVCODEC_MAX_AUDIO_FRAME_SIZE));
+	while(!chunk && !(sound->audio.end = !(sound->audio.pktprc.size || av_pq_bufget(sound, &sound->audio.pq, &sound->audio.pkt))))
+	{
+		if(!sound->audio.pktprc.size) sound->audio.pktprc = sound->audio.pkt;
+		len = avcodec_decode_audio4(sound->audio.cc, sound->audio.frm, &sound->audio.rdy, &sound->audio.pktprc);
+		if(len > 0) { sound->audio.pktprc.data += len; sound->audio.pktprc.size -= len; }
+		if(len < 0 || !sound->audio.pktprc.size) { av_free_packet(&sound->audio.pkt); memset(&sound->audio.pktprc, 0, sizeof(AVPacket)); }
+		if(sound->audio.rdy)
+		{
+			//const uint8_t *in[] = { sound->audio.frm->data[0] };
+			uint8_t *out[] = { sound->audio.buffer + (sound->audio.bfrsmp ? av_samples_get_buffer_size(NULL, sound->audio.cc->channels, sound->audio.bfrsmp, sound->audio.cc->sample_fmt, 1) : 0) };
+			sound->audio.frms++;
+			if(!sound->audio.bfrsmp)
+			{
+				if(sound->audio.frm->best_effort_timestamp != AV_NOPTS_VALUE) sound->audio.pts = sound->audio.frm->best_effort_timestamp;
+				else if(* (uint64_t *) sound->audio.frm->opaque != AV_NOPTS_VALUE) sound->audio.pts = * (uint64_t *) sound->audio.frm->opaque;
+				else if(sound->audio.frm->pts != AV_NOPTS_VALUE) sound->audio.pts = sound->audio.frm->pts;
+				else sound->audio.pts = sound->audio.frms;
+			}
+			//len = swr_convert(sound->audio.rc, out, smp, in, sound->audio.frm->nb_samples);
+			len = swr_convert(sound->audio.rc, out, smp, (const uint8_t **) sound->audio.frm->data, sound->audio.frm->nb_samples);
+			if(len > 0) sound->audio.bfrsmp += len;
+			//if(av_samples_get_buffer_size(NULL, alChannels(sound->audio.format), sound->audio.bfrsmp, av_alSampleFormat(sound->audio.format), 1) >= size)
+			if(sound->audio.bfrsmp >= smp)
+				chunk = 1;
+			sound->audio.rdy = 0;
+		}
+	}
 	//av_free(sound->audio.buffer);
 	return sound->audio.bfrsmp;
 }

@@ -62,9 +62,9 @@ xlInit()
 	xlMatrixInit();
 	xlPipelineInit();
 
-	xlMagicCookie = magic_open(MAGIC_MIME_TYPE);
+	xlMagicCookie = magic_open(MAGIC_MIME_TYPE | MAGIC_SYMLINK | MAGIC_DEVICES);
 	magic_load(xlMagicCookie, NULL);
-	xlMagicCompressCookie = magic_open(MAGIC_MIME_TYPE | MAGIC_COMPRESS);
+	xlMagicCompressCookie = magic_open(MAGIC_MIME_TYPE | MAGIC_SYMLINK | MAGIC_DEVICES | MAGIC_COMPRESS);
 	magic_load(xlMagicCompressCookie, NULL);
 
 	xlDataInit();
@@ -79,7 +79,7 @@ xlInit()
 	MagickWandGenesis();
 	xlGenStores(1, &xlImages);
 
-	av_init();
+	flInit();
 	xlGenStores(1, &xlSounds);
 
 	FT_Init_FreeType(&xlFontLibrary);

@@ -1,7 +1,8 @@
-#ifndef AV_H
-#define AV_H
+#ifndef FL_SOUND_H
+#define FL_SOUND_H
 
 #include <XL/AL/xlalut.h>
+#include <XL/FL/xlflut.h>
 
 #include <libavcodec/avcodec.h>
 #include <libavformat/avformat.h>
@@ -104,6 +105,9 @@ flSoundEnd(FLsound *sound);
 
 unsigned int
 flSoundReadChunk(FLsound *sound, unsigned int size, uint8_t *buffer);
+
+unsigned int
+flSoundConvertReadChunk(FLsound *sound, unsigned int size, uint8_t *buffer);
 
 unsigned int
 flSoundBufferChunk(FLsound *sound, unsigned int size, ALuint bfr);

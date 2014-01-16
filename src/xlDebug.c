@@ -13,6 +13,15 @@ glDebug(const XLpath file, XLint line)
 }
 
 void
+alDebug(const XLpath file, XLint line)
+{
+	ALenum error;
+
+	if((error = alGetError()) != AL_NO_ERROR)
+		xlLog(L"AL debug:%s:%i:AL error:%i:%s\n", file, line, error, alGetString(error));
+}
+
+void
 xlDebug(const XLpath file, XLint line)
 {
 	XLerror *error;

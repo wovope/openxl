@@ -23,7 +23,9 @@ xlMetHeadImport(const XLpath filepath)
 			xlMetaHeaderSet(metaheader, XL_FONT_METAHEADER_MAGIC, filepath);
 			xlMetHeadLog();
 		}
-		else if(xlPathCappedEqual(mime, "sound", 5) || xlPathCappedEqual(mime, "application/ogg", 15))
+		else if(
+			xlPathCappedEqual(mime, "audio", 5) ||
+			xlPathCappedEqual(mime, "application/ogg", 15))
 		{
 			xlMetaHeaderSet(metaheader, XL_SOUND_METAHEADER_MAGIC, filepath);
 			xlMetHeadLog();
@@ -249,12 +251,12 @@ xlSndImport(const XLpath filepath)
 	xlLog(L"%s: channels: %i\n", filepath, sound->header.channels);
 	sound->header.frequency = flSoundFrequency(&fl);
 	xlLog(L"%s: frequency: %i\n", filepath, sound->header.frequency);
-	sound->header.length = flSoundSize(&fl) / flSoundSampleSize(&fl) / flSoundChannels(&fl);
+	sound->header.length = flSoundSamples(&fl);
 	xlLog(L"%s: length: %i\n", filepath, sound->header.length);
 	sound->header.bps = flSoundSampleSize(&fl);
 	xlLog(L"%s: bps: %i\n", filepath, sound->header.bps);
 
-	sound->body.samples = xlMemoryAlloc(sound->header.length * sound->header.bps * sound->header.channels);
+	sound->body.samples = xlMemoryAlloc(sound->header.length * sound->header.bps);
 	flSoundReadSamples(&fl, sound->body.samples);
 
 	flSoundUnload(&fl);

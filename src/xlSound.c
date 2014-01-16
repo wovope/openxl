@@ -2,7 +2,7 @@
 #include "XL/xl.h"
 
 static
-unsigned int
+ALenum
 alFormat(unsigned int bps, unsigned int channels)
 {
 	switch(bps)
@@ -115,8 +115,9 @@ xlSndGenBuffer(void)
 
 	alGenBuffers(1, &bind->runtime.buffer);
 
-	alBufferData(bind->runtime.buffer, alFormat(bind->header.bps, bind->header.channels), bind->body.samples, bind->header.length * bind->header.bps * bind->header.channels, bind->header.frequency);
-	//alDebug(__FILE__, __LINE__);
+	alBufferData(bind->runtime.buffer, alFormat(bind->header.bps, bind->header.channels), bind->body.samples, bind->header.length * bind->header.bps, bind->header.frequency);
+
+	alDebug(__FILE__, __LINE__);
 }
 
 void
@@ -126,7 +127,7 @@ xlSndDeleteBuffer(void)
 
 	alDeleteBuffers(1, &bind->runtime.buffer);
 
-	//alDebug(__FILE__, __LINE__);
+	alDebug(__FILE__, __LINE__);
 }
 
 void
@@ -138,7 +139,7 @@ xlSndGenSource(void)
 
 	alSourcei(bind->runtime.source, AL_BUFFER, bind->runtime.buffer);
 
-	//alDebug(__FILE__, __LINE__);
+	alDebug(__FILE__, __LINE__);
 }
 
 void
@@ -149,7 +150,7 @@ xlSndDeleteSource(void)
 	alSourcei(bind->runtime.source, AL_BUFFER, 0);
 	alDeleteSources(1, &bind->runtime.source);
 
-	//alDebug(__FILE__, __LINE__);
+	alDebug(__FILE__, __LINE__);
 }
 
 void
@@ -159,7 +160,7 @@ xlSndPlay(void)
 
 	alSourcePlay(bind->runtime.source);
 
-	//alDebug(__FILE__, __LINE__);
+	alDebug(__FILE__, __LINE__);
 }
 
 void
@@ -169,5 +170,5 @@ xlSndStop(void)
 
 	alSourceStop(bind->runtime.source);
 
-	//alDebug(__FILE__, __LINE__);
+	alDebug(__FILE__, __LINE__);
 }

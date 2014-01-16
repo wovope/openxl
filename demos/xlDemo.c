@@ -286,7 +286,7 @@ xlDemoLoad(int *argc, char **argv)
 
 	xlGenSounds(1, &xlDemoSound);
 	xlBindSound(xlDemoSound);
-	xlDataLoad("data/sounds/abe-intro.ogg");
+	xlSndImport("data/sounds/abe-intro.ogg");
 	xlSndGenBuffer();
 	xlSndGenSource();
 	xlSndPlay();
