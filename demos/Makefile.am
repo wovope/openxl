@@ -17,6 +17,7 @@ xld_data = \
 	data/images/LightRed.png \
 	data/images/SimpleMan.png \
 	data/images/SimpleWoman.png \
+	data/sounds/abe-intro.ogg \
 	data/fonts/VeraBd.ttf \
 	data/fonts/DejaVuSans-Bold.ttf \
 	data/fonts/Default.xld \
