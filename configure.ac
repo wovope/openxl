@@ -1,5 +1,6 @@
 AC_INIT([X Library], [2014.01.15], [juanmabcmail@gmail.com], [xl], ["http://code.google.com/p/openxl"])
-AC_CONFIG_MACRO_DIR([m4])
+AC_CONFIG_MACRO_DIR([autoconf.macro])
+AC_CONFIG_AUX_DIR([autoconf.aux])
 AC_CONFIG_HEADERS(config.h)
 AM_INIT_AUTOMAKE(no-dist-gzip dist-bzip2)
 

@@ -1,4 +1,4 @@
-ACLOCAL_AMFLAGS = -I m4
+ACLOCAL_AMFLAGS = -I autoconf.macro
 SUBDIRS = src tools doc demos games apps
 pkgconfigdir = $(libdir)/pkgconfig
 pkgconfig_DATA = xl.pc

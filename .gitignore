@@ -3,14 +3,10 @@
 NOTES
 
 # Executables
-apps/xlTerminal/xlTerminal
-games/xlToyMachines/xlToyMachines
-games/xlSpaceWars/xlSpaceWars
-games/xlAdventure/xlAdventure
-games/xlSoccer/xlSoccer
-games/xlBasket/xlBasket
-
-# Demonstration
+tools/xlc
+tools/xld
+tools/xlinfo
+*.xlc
 demos/xlvector
 demos/xlvectorassign
 demos/xlvectorcmp
@@ -37,28 +33,40 @@ demos/xlparticles
 demos/xlcharacters
 demos/xlport
 demos/xlcity
+apps/xlTerminal/xlTerminal
+games/xlToyMachines/xlToyMachines
+games/xlSpaceWars/xlSpaceWars
+games/xlAdventure/xlAdventure
+games/xlSoccer/xlSoccer
+games/xlBasket/xlBasket
 
-# Tools
-tools/xlc
-tools/xld
-tools/xlinfo
-*.xlc
+# Documentation
 
-# Distribution
+# Packages
 xl-*.tar.bz2
+openxl-*.tar.bz2
+openxl-*.rpm
+openxl-*.deb
+openxl-*.pkg.tar.xz
+openxl.spec
+openxl.dsc
+debian.rules
+debian.changelog
+debian.control
+PKGBUILD
 
 # Website
 openxl.wiki
 
-
 # Autotools
-m4/
+autoconf.macro/
+autoconf.aux/
+autom4te.cache/
 compile
 config.*
 configure
 depcomp
 aclocal.m4
-autom4te.cache
 stamp-*
 libtool
 ltmain.sh
@@ -97,4 +105,3 @@ xl.pc
 *.test 
 *.log
 *.trs
-
