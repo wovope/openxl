@@ -1,3 +1,4 @@
+SDL2 port, library init puts you on a context already, non default xl.init? file configurable, this is going to be on an on, really simple library :) (first gift from svgalib :))
 embed or port libassimp to C, support .obj, .blend, .3ds?, ... conversion! XLskeleton (bones, XLbone?), XLanimation (static XLvertices/XLmesh?, dynamic XLmatrix list)
 Merge ale, ml
 Straight to xlTerminal stage 1
