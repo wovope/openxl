@@ -221,47 +221,47 @@ nobase_noinst_DATA = \
 nodist_noinst_DATA = \
 	$(xlc_data)
 check_SCRIPTS = \
-	xlvectorcmp \
-	xlmatrixcmp
+	xlVectorCmp \
+	xlMatrixCmp
 noinst_LIBRARIES = \
 	libmy.a \
-	libxldemo.a
+	libxlDemo.a
 noinst_PROGRAMS = \
 	xlinfo \
 	xlc \
 	xld \
-	xlstuff \
-	xlvector \
-	xlvectorassign \
-	xlmatrix \
-	xlmatrixassign \
-	xlimage \
-	xlimagecube \
-	xlimagestring \
-	xlsurfacecube \
-	xlobject \
-	xlobjectstring \
-	xlmodel \
-	xlpairs \
-	xlcolors \
-	xlpoints \
-	xlvectors \
-	xlparticles \
-	xlcharacters \
-	xlport \
-	xlcity
+	xlStuff \
+	xlVector \
+	xlVectorAssign \
+	xlMatrix \
+	xlMatrixAssign \
+	xlImage \
+	xlImageCube \
+	xlImageString \
+	xlSurfaceCube \
+	xlObject \
+	xlObjectString \
+	xlModel \
+	xlPairs \
+	xlColors \
+	xlPoints \
+	xlVectors \
+	xlParticles \
+	xlCharacters \
+	xlPort \
+	xlCity
 TESTS = \
 	xlinfo \
-	xlstuff \
-	xlvector \
-	xlvectorassign \
-	xlvectorcmp \
-	xlmatrix \
-	xlmatrixassign \
-	xlmatrixcmp
+	xlStuff \
+	xlVector \
+	xlVectorAssign \
+	xlVectorCmp \
+	xlMatrix \
+	xlMatrixAssign \
+	xlMatrixCmp
 EXTRA_DIST = \
-	xlvectorcmp.in \
-	xlmatrixcmp.in \
+	xlVectorCmp.in \
+	xlMatrixCmp.in \
 	xldatadirs.in \
 	$(xld_data)
 CLEANFILES = \
@@ -281,77 +281,77 @@ xlinfo_LDADD = \
 	libmy.a \
 	$(top_builddir)/src/libxl.la
 
-xlstuff_SOURCES = \
-	xlstuff.c
-xlstuff_CPPFLAGS = \
+xlStuff_SOURCES = \
+	xlStuff.c
+xlStuff_CPPFLAGS = \
 	-Wall \
 	$(XL_DEPS_CFLAGS) \
 	$(XL_REAL_CFLAGS) \
 	$(XL_SIMD_CFLAGS) \
 	$(XL_CFLAGS) \
 	-I$(top_srcdir)/src
-xlstuff_LDADD = \
+xlStuff_LDADD = \
 	-L$(top_builddir)/src \
 	-lxl
 
-xlvector_SOURCES = \
-	xlvector.c
-xlvector_CPPFLAGS = \
+xlVector_SOURCES = \
+	xlVector.c
+xlVector_CPPFLAGS = \
 	-Wall \
 	$(XL_DEPS_CFLAGS) \
 	$(XL_REAL_CFLAGS) \
 	$(XL_SIMD_CFLAGS) \
 	$(XL_CFLAGS) \
 	-I$(top_srcdir)/src
-xlvector_LDADD = \
+xlVector_LDADD = \
 	-L$(top_builddir)/src \
 	-lxl
 
-xlvectorassign_SOURCES = \
-	xlvectorassign.c
-xlvectorassign_CPPFLAGS = \
+xlVectorAssign_SOURCES = \
+	xlVectorAssign.c
+xlVectorAssign_CPPFLAGS = \
 	-Wall \
 	$(XL_DEPS_CFLAGS) \
 	$(XL_REAL_CFLAGS) \
 	$(XL_SIMD_CFLAGS) \
 	$(XL_CFLAGS) \
 	-I$(top_srcdir)/src
-xlvectorassign_LDADD = \
+xlVectorAssign_LDADD = \
 	-L$(top_builddir)/src \
 	-lxl
 
-xlmatrix_SOURCES = \
-	xlmatrix.c
-xlmatrix_CPPFLAGS = \
+xlMatrix_SOURCES = \
+	xlMatrix.c
+xlMatrix_CPPFLAGS = \
 	-Wall \
 	$(XL_DEPS_CFLAGS) \
 	$(XL_REAL_CFLAGS) \
 	$(XL_SIMD_CFLAGS) \
 	$(XL_CFLAGS) \
 	-I$(top_srcdir)/src
-xlmatrix_LDADD = \
+xlMatrix_LDADD = \
 	-L$(top_builddir)/src \
 	-lxl
 
-xlmatrixassign_SOURCES = \
-	xlmatrixassign.c
-xlmatrixassign_CPPFLAGS = \
+xlMatrixAssign_SOURCES = \
+	xlMatrixAssign.c
+xlMatrixAssign_CPPFLAGS = \
 	-Wall \
 	$(XL_DEPS_CFLAGS) \
 	$(XL_REAL_CFLAGS) \
 	$(XL_SIMD_CFLAGS) \
 	$(XL_CFLAGS) \
 	-I$(top_srcdir)/src
-xlmatrixassign_LDADD = \
+xlMatrixAssign_LDADD = \
 	-L$(top_builddir)/src \
 	-lxl
 
-xlvectorcmp: xlvectorcmp.in
-	cp $(top_srcdir)/demos/xlvectorcmp.in $@ 
+xlVectorCmp: xlVectorCmp.in
+	cp $(top_srcdir)/demos/xlVectorCmp.in $@ 
 	chmod +x $@
 
-xlmatrixcmp: xlmatrixcmp.in
-	cp $(top_srcdir)/demos/xlmatrixcmp.in $@
+xlMatrixCmp: xlMatrixCmp.in
+	cp $(top_srcdir)/demos/xlMatrixCmp.in $@
 	chmod +x $@
 
 xlc_SOURCES = \
@@ -401,241 +401,241 @@ libmy_a_CPPFLAGS = \
 libmy_a_LIBADD = \
 	$(top_builddir)/src/libxl.la
 
-libxldemo_a_SOURCES = \
+libxlDemo_a_SOURCES = \
 	xlDemo.h \
 	xlDemo.c
-libxldemo_a_CPPFLAGS = \
+libxlDemo_a_CPPFLAGS = \
 	-Wall \
 	$(XL_DEPS_CFLAGS) \
 	$(XL_REAL_CFLAGS) \
 	$(XL_SIMD_CFLAGS) \
 	$(XL_CFLAGS) \
 	-I$(top_srcdir)/src
-libxldemo_a_LIBADD = \
+libxlDemo_a_LIBADD = \
 	$(top_builddir)/src/libxl.la \
 	$(top_builddir)/demos/libmy.a 
 
-xlimage_SOURCES = \
-	xlimage.c
-xlimage_CPPFLAGS = \
+xlImage_SOURCES = \
+	xlImage.c
+xlImage_CPPFLAGS = \
 	-Wall \
 	-I$(top_srcdir)/src \
 	$(XL_DEPS_CFLAGS) \
 	$(XL_REAL_CFLAGS) \
 	$(XL_SIMD_CFLAGS) \
 	$(XL_CFLAGS)
-xlimage_LDADD = \
-	libxldemo.a \
+xlImage_LDADD = \
+	libxlDemo.a \
 	libmy.a \
 	$(top_builddir)/src/libxl.la \
 	$(XL_DEPS_LIBS)
 
-xlimagecube_SOURCES = \
-	xlimagecube.c
-xlimagecube_CPPFLAGS = \
+xlImageCube_SOURCES = \
+	xlImageCube.c
+xlImageCube_CPPFLAGS = \
 	-Wall \
 	-I$(top_srcdir)/src \
 	$(XL_DEPS_CFLAGS) \
 	$(XL_REAL_CFLAGS) \
 	$(XL_SIMD_CFLAGS) \
 	$(XL_CFLAGS)
-xlimagecube_LDADD = \
-	libxldemo.a \
+xlImageCube_LDADD = \
+	libxlDemo.a \
 	libmy.a \
 	$(top_builddir)/src/libxl.la \
 	$(XL_DEPS_LIBS)
 
-xlimagestring_SOURCES = \
-	xlimagestring.c
-xlimagestring_CPPFLAGS = \
+xlImageString_SOURCES = \
+	xlImageString.c
+xlImageString_CPPFLAGS = \
 	-Wall \
 	-I$(top_srcdir)/src \
 	$(XL_DEPS_CFLAGS) \
 	$(XL_REAL_CFLAGS) \
 	$(XL_SIMD_CFLAGS) \
 	$(XL_CFLAGS)
-xlimagestring_LDADD = \
-	libxldemo.a \
+xlImageString_LDADD = \
+	libxlDemo.a \
 	libmy.a \
 	$(top_builddir)/src/libxl.la \
 	$(XL_DEPS_LIBS)
 
-xlsurfacecube_SOURCES = \
-	xlsurfacecube.c
-xlsurfacecube_CPPFLAGS = \
+xlSurfaceCube_SOURCES = \
+	xlSurfaceCube.c
+xlSurfaceCube_CPPFLAGS = \
 	-Wall \
 	$(XL_DEPS_CFLAGS) \
 	$(XL_REAL_CFLAGS) \
 	$(XL_SIMD_CFLAGS) \
 	$(XL_CFLAGS) \
 	-I$(top_srcdir)/src
-xlsurfacecube_LDADD = \
-	libxldemo.a \
+xlSurfaceCube_LDADD = \
+	libxlDemo.a \
 	libmy.a \
 	$(top_builddir)/src/libxl.la \
 	$(XL_DEPS_LIBS)
 
-xlobject_SOURCES = \
-	xlobject.c
-xlobject_CPPFLAGS = \
+xlObject_SOURCES = \
+	xlObject.c
+xlObject_CPPFLAGS = \
 	-Wall \
 	$(XL_DEPS_CFLAGS) \
 	$(XL_REAL_CFLAGS) \
 	$(XL_SIMD_CFLAGS) \
 	$(XL_CFLAGS) \
 	-I$(top_srcdir)/src
-xlobject_LDADD = \
-	libxldemo.a \
+xlObject_LDADD = \
+	libxlDemo.a \
 	libmy.a \
 	$(top_builddir)/src/libxl.la \
 	$(XL_DEPS_LIBS)
 
-xlobjectstring_SOURCES = \
-	xlobjectstring.c
-xlobjectstring_CPPFLAGS = \
+xlObjectString_SOURCES = \
+	xlObjectString.c
+xlObjectString_CPPFLAGS = \
 	-Wall \
 	$(XL_DEPS_CFLAGS) \
 	$(XL_REAL_CFLAGS) \
 	$(XL_SIMD_CFLAGS) \
 	$(XL_CFLAGS) \
 	-I$(top_srcdir)/src
-xlobjectstring_LDADD = \
-	libxldemo.a \
+xlObjectString_LDADD = \
+	libxlDemo.a \
 	libmy.a \
 	$(top_builddir)/src/libxl.la \
 	$(XL_DEPS_LIBS)
 
-xlmodel_SOURCES = \
-	xlmodel.c
-xlmodel_CPPFLAGS = \
+xlModel_SOURCES = \
+	xlModel.c
+xlModel_CPPFLAGS = \
 	-Wall \
 	$(XL_DEPS_CFLAGS) \
 	$(XL_REAL_CFLAGS) \
 	$(XL_SIMD_CFLAGS) \
 	$(XL_CFLAGS) \
 	-I$(top_srcdir)/src
-xlmodel_LDADD = \
-	libxldemo.a \
+xlModel_LDADD = \
+	libxlDemo.a \
 	libmy.a \
 	$(top_builddir)/src/libxl.la \
 	$(XL_DEPS_LIBS)
 
-xlpairs_SOURCES = \
-	xlpairs.c
-xlpairs_CPPFLAGS = \
+xlPairs_SOURCES = \
+	xlPairs.c
+xlPairs_CPPFLAGS = \
 	-Wall \
 	$(XL_DEPS_CFLAGS) \
 	$(XL_REAL_CFLAGS) \
 	$(XL_SIMD_CFLAGS) \
 	$(XL_CFLAGS) \
 	-I$(top_srcdir)/src
-xlpairs_LDADD = \
-	libxldemo.a \
+xlPairs_LDADD = \
+	libxlDemo.a \
 	libmy.a \
 	$(top_builddir)/src/libxl.la \
 	$(XL_DEPS_LIBS)
 
-xlcolors_SOURCES = \
-	xlcolors.c
-xlcolors_CPPFLAGS = \
+xlColors_SOURCES = \
+	xlColors.c
+xlColors_CPPFLAGS = \
 	-Wall \
 	$(XL_DEPS_CFLAGS) \
 	$(XL_REAL_CFLAGS) \
 	$(XL_SIMD_CFLAGS) \
 	$(XL_CFLAGS) \
 	-I$(top_srcdir)/src
-xlcolors_LDADD = \
-	libxldemo.a \
+xlColors_LDADD = \
+	libxlDemo.a \
 	libmy.a \
 	$(top_builddir)/src/libxl.la \
 	$(XL_DEPS_LIBS)
 
-xlpoints_SOURCES = \
-	xlpoints.c
-xlpoints_CPPFLAGS = \
+xlPoints_SOURCES = \
+	xlPoints.c
+xlPoints_CPPFLAGS = \
 	-Wall \
 	$(XL_DEPS_CFLAGS) \
 	$(XL_REAL_CFLAGS) \
 	$(XL_SIMD_CFLAGS) \
 	$(XL_CFLAGS) \
 	-I$(top_srcdir)/src
-xlpoints_LDADD = \
-	libxldemo.a \
+xlPoints_LDADD = \
+	libxlDemo.a \
 	libmy.a \
 	$(top_builddir)/src/libxl.la \
 	$(XL_DEPS_LIBS)
 
-xlvectors_SOURCES = \
-	xlvectors.c
-xlvectors_CPPFLAGS = \
+xlVectors_SOURCES = \
+	xlVectors.c
+xlVectors_CPPFLAGS = \
 	-Wall \
 	$(XL_DEPS_CFLAGS) \
 	$(XL_REAL_CFLAGS) \
 	$(XL_SIMD_CFLAGS) \
 	$(XL_CFLAGS) \
 	-I$(top_srcdir)/src
-xlvectors_LDADD = \
-	libxldemo.a \
+xlVectors_LDADD = \
+	libxlDemo.a \
 	libmy.a \
 	$(top_builddir)/src/libxl.la \
 	$(XL_DEPS_LIBS)
 
-xlparticles_SOURCES = \
-	xlparticles.c
-xlparticles_CPPFLAGS = \
+xlParticles_SOURCES = \
+	xlParticles.c
+xlParticles_CPPFLAGS = \
 	-Wall \
 	$(XL_DEPS_CFLAGS) \
 	$(XL_REAL_CFLAGS) \
 	$(XL_SIMD_CFLAGS) \
 	$(XL_CFLAGS) \
 	-I$(top_srcdir)/src
-xlparticles_LDADD = \
-	libxldemo.a \
+xlParticles_LDADD = \
+	libxlDemo.a \
 	libmy.a \
 	$(top_builddir)/src/libxl.la \
 	$(XL_DEPS_LIBS)
 
-xlcharacters_SOURCES = \
-	xlcharacters.c
-xlcharacters_CPPFLAGS = \
+xlCharacters_SOURCES = \
+	xlCharacters.c
+xlCharacters_CPPFLAGS = \
 	-Wall \
 	$(XL_DEPS_CFLAGS) \
 	$(XL_REAL_CFLAGS) \
 	$(XL_SIMD_CFLAGS) \
 	$(XL_CFLAGS) \
 	-I$(top_srcdir)/src
-xlcharacters_LDADD = \
-	libxldemo.a \
+xlCharacters_LDADD = \
+	libxlDemo.a \
 	libmy.a \
 	$(top_builddir)/src/libxl.la \
 	$(XL_DEPS_LIBS)
 
-xlport_SOURCES = \
-	xlport.c
-xlport_CPPFLAGS = \
+xlPort_SOURCES = \
+	xlPort.c
+xlPort_CPPFLAGS = \
 	-Wall \
 	$(XL_DEPS_CFLAGS) \
 	$(XL_REAL_CFLAGS) \
 	$(XL_SIMD_CFLAGS) \
 	$(XL_CFLAGS) \
 	-I$(top_srcdir)/src
-xlport_LDADD = \
-	libxldemo.a \
+xlPort_LDADD = \
+	libxlDemo.a \
 	libmy.a \
 	$(top_builddir)/src/libxl.la \
 	$(XL_DEPS_LIBS)
 
-xlcity_SOURCES = \
-	xlcity.c
-xlcity_CPPFLAGS = \
+xlCity_SOURCES = \
+	xlCity.c
+xlCity_CPPFLAGS = \
 	-Wall \
 	$(XL_DEPS_CFLAGS) \
 	$(XL_REAL_CFLAGS) \
 	$(XL_SIMD_CFLAGS) \
 	$(XL_CFLAGS) \
 	-I$(top_srcdir)/src
-xlcity_LDADD = \
-	libxldemo.a \
+xlCity_LDADD = \
+	libxlDemo.a \
 	libmy.a \
 	$(top_builddir)/src/libxl.la \
 	$(XL_DEPS_LIBS)
