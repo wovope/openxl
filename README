@@ -1,47 +1,45 @@
- _______________________________________________________________________________________
-/\                                                                                      \
-\_|                   Open X Library: Multiple Purpose C Open Engine                    |
-  |                                                                                     |
-  |                     OpenXL is a multiple purpose c open engine.                     |
-  |                            A proceduralization library.                             |
-  |  It can be seen as the artist, the designer, even the programmer of your project.   |
-  |     It is designed so it has some function power that could turn into any task,     |
-  | performing a texture, a pixel art image, a mesh, a model, a level, a song, etc, ... |
-  |        The idea is to take the part of the missing components on your team.         |
-  |   __________________________________________________________________________________|_
-   \_/____________________________________________________________________________________/
+ ____________________________________________________________________________________________
+/\                                                                                           \
+\_|                      Open X Library: Multiple Purpose C Open Engine                      |
+  |                                                                                          |
+  |                       OpenXL is a multiple purpose c open engine.                        |
+  |                               A proceduralization library.                               |
+  |     It can be seen as the artist, the designer, even the programmer of your project.     |
+  |       It is designed so it has some function power that could turn into any task,        |
+  |   performing a texture, a pixel art image, a mesh, a model, a level, a song, etc, ...    |
+  |           The idea is to take the part of the missing components on your team.           |
+  |   _______________________________________________________________________________________|_
+   \_/_________________________________________________________________________________________/
 
-**  ** **     **  ** **     **  ** **    **  ** **     **  ** **     **  ** **  
- ****  **      ****  **      ****  **     ****  **      ****  **      ****  **  
-**  ** ****   **  ** ****   **  ** ****  **  ** ****   **  ** ****   **  ** ****
 
-		 Open X Library: Multiple Purpose C Open Engine
+         __^__                                                                    __^__
+        ( ___ )------------------------------------------------------------------( ___ )
+         | / | OpenXL (Open X Library) licensed GPLv3 by Juan Manuel Borges Caño  | \ |
+         | / |            * homepage <http://code.google.com/p/openxl>            | \ |
+         | / |             * blog <http://juanmabcblog.blogspot.com>              | \ |
+         |___|               * mail <mailto:juanmabcmail@gmail.com>               |___|
+        (_____)------------------------------------------------------------------(_____)
 
-                                  **  ** **  
-                                   ****  **  
-                                  **  ** ****
 
-                   Licensed GPLv3 by Juan Manuel Borges Caño
-                  * Homepage <http://code.google.com/p/openxl>
-                     * Mail <mailto:juanmabcmail@gmail.com>
-                   * Blog <http://juanmabcblog.blogspot.com>
-               Copyright (C) 2012 - 2014 Juan Manuel Borges Caño
+                   ##########################################################
+                   #      $ git clone http://code.google.com/p/openxl       #
+                   #                      $ cd openxl                       #
+                   #                    $ autoreconf -i                     #
+                   # $ ./configure PKG_CONFIG_PATH="$(pwd)/tools/pkgconfig" #
+                   #                         $ make                         #
+                   #                     # make install                     #
+                   ##########################################################
 
-**  ** **     **  ** **     **  ** **    **  ** **     **  ** **     **  ** **  
- ****  **      ****  **      ****  **     ****  **      ****  **      ****  **  
-**  ** ****   **  ** ****   **  ** ****  **  ** ****   **  ** ****   **  ** ****
 
-$ git clone http://code.google.com/p/openxl
-$ cd openxl
-$ autoreconf -i
-$ ./configure PKG_CONFIG_PATH="$(pwd)/tools/pkgconfig"
-$ make
-# make install
+             .+"+.+"+.+"+.+"+.+"+.+"+.+"+.+"+.+"+.+"+.+"+.+"+.+"+.+"+.+"+.+"+.+"+.
+            (          Thanks through EMail (suggested subject OpenXL)            )
+             )                              or/and                               (
+            (  Payments through Blog with BitCoin, Flattr, Western Union, PayPal  )
+             )                              Welcome                              (
+            (                                                                     )
+             )        Copyright (C) 2012 - 2014 Juan Manuel Borges Caño         (
+            (                                                                     )
+             "+.+"+.+"+.+"+.+"+.+"+.+"+.+"+.+"+.+"+.+"+.+"+.+"+.+"+.+"+.+"+.+"+.+"
 
-OpenXL (Open X Library) licensed GPLv3 by Juan Manuel Borges Caño
-* homepage <http://code.google.com/p/openxl>
-* blog <http://juanmabcblog.blogspot.com>
-* mail <mailto:juanmabcmail@gmail.com>
-Copyright (C) 2012 - 2014 Juan Manuel Borges Caño :-) Thanks through email (suggested subject openxl) or/and Payments through blog with BitCoin, Flattr, Western Union, PayPal welcome :-)
 
-Proceed to NEWS, AUTHORS, COPYING, ChangeLog, PAYMENTS
+              If you will, Proceed to NEWS, AUTHORS, COPYING, ChangeLog, PAYMENTS
